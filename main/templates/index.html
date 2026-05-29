@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой первый Django-сайт</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #d6d6d6;
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background-color: #00d4ff;
+            color: black;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #00aacc;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 40px 20px 80px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.08);
+            width: 300px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #dddddd;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Django Start</h1>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Добро пожаловать на мой первый сайт</h2>
+        <p>
+            Это первая страница, созданная на Django. Дальше мы сможем добавить сюда красивый дизайн,
+            новые блоки, изображения, кнопки, формы и полноценную логику сайта.
+        </p>
+        <button>Начать изучение</button>
+    </section>
+
+    <section class="cards">
+        <div class="card">
+            <h3>Простота</h3>
+            <p>
+                Django помогает быстро начать разработку сайта, даже если вы только знакомитесь с вебом.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Гибкость</h3>
+            <p>
+                Мы можем легко добавлять новые страницы, шаблоны, стили, формы и подключать базу данных.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Развитие</h3>
+            <p>
+                На основе этой страницы можно постепенно построить полноценный учебный или реальный проект.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Мой первый проект на Django</p>
+    </footer>
+
+</body>
+</html>
