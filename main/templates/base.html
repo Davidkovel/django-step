@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AUTO.RIA — лідер автомобільної інтернет-торгівлі{% endblock %}</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --red: #db5c4c;
+            --red-dark: #c04a3b;
+            --red-light: #f5e8e6;
+            --gray-bg: #f4f4f4;
+            --gray-light: #ebebeb;
+            --gray-mid: #ccc;
+            --gray-text: #777;
+            --dark: #2c2c2c;
+            --link: #00508c;
+            --link-hover: #003f6e;
+            --green: #2da44e;
+            --border: #e0e0e0;
+            --white: #fff;
+            --shadow: 0 2px 8px rgba(0,0,0,.1);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,.15);
+            --radius: 6px;
+            --radius-lg: 10px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-size: 14px;
+            color: var(--dark);
+            background: var(--gray-bg);
+            line-height: 1.5;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { color: var(--link-hover); }
+
+        /* ─── HEADER ─── */
+        .header {
+            background: var(--red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 6px rgba(0,0,0,.2);
+        }
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        .logo span { color: #ffd700; }
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+        }
+        .nav a {
+            color: rgba(255,255,255,.9);
+            font-size: 13px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: background .15s;
+        }
+        .nav a:hover { background: rgba(0,0,0,.15); color: #fff; }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all .15s;
+            text-decoration: none;
+        }
+        .btn-white {
+            background: #fff;
+            color: var(--red);
+        }
+        .btn-white:hover { background: #f5f5f5; color: var(--red-dark); }
+        .btn-outline-white {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255,255,255,.6);
+        }
+        .btn-outline-white:hover { background: rgba(255,255,255,.1); color: #fff; }
+        .btn-red {
+            background: var(--red);
+            color: #fff;
+        }
+        .btn-red:hover { background: var(--red-dark); color: #fff; }
+        .btn-green {
+            background: var(--green);
+            color: #fff;
+        }
+        .btn-green:hover { background: #248a41; color: #fff; }
+        .btn-gray {
+            background: var(--gray-light);
+            color: var(--dark);
+        }
+        .btn-gray:hover { background: var(--gray-mid); }
+
+        /* ─── MESSAGES ─── */
+        .messages-container {
+            max-width: 1280px;
+            margin: 10px auto 0;
+            padding: 0 16px;
+        }
+        .alert {
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-error   { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .alert-info    { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .alert-warning { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+
+        /* ─── LAYOUT ─── */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .page-content { padding: 20px 0 40px; }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            background: #2c2c2c;
+            color: #aaa;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 13px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+        .footer-col a {
+            display: block;
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 24px;
+            padding-top: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* ─── FORM INPUTS ─── */
+        .form-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 14px;
+            outline: none;
+            transition: border-color .15s;
+            background: #fff;
+            color: var(--dark);
+        }
+        .form-input:focus { border-color: var(--red); }
+        .form-input::placeholder { color: #aaa; }
+        select.form-input { cursor: pointer; }
+
+        /* ─── BADGES ─── */
+        .badge {
+            display: inline-block;
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .badge-green  { background: #e6f4ea; color: var(--green); }
+        .badge-blue   { background: #e3f0fb; color: #1565c0; }
+        .badge-orange { background: #fff3e0; color: #e65100; }
+        .badge-red    { background: #fce8e6; color: var(--red); }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .header-inner { gap: 10px; }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <a href="{% url 'cars:home' %}" class="logo">AUTO<span>.RIA</span></a>
+        <nav class="nav">
+            <a href="{% url 'cars:home' %}">Авто з пробігом</a>
+            <a href="#">Нові авто</a>
+            <a href="#">Все для авто</a>
+            <a href="#">Garage</a>
+        </nav>
+        <div class="header-actions">
+            {% if user.is_authenticated %}
+                <a href="{% url 'users:profile' %}" class="btn btn-outline-white">
+                    👤 {{ user.first_name|default:user.username }}
+                </a>
+                <form method="post" action="{% url 'users:logout' %}" style="display:inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-white">Вийти</button>
+                </form>
+            {% else %}
+                <a href="{% url 'users:login' %}" class="btn btn-outline-white">Увійти</a>
+                <a href="{% url 'users:register' %}" class="btn btn-white">Продати авто</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+{% if messages %}
+<div class="messages-container">
+    {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}error{% elif message.tags == 'success' %}success{% elif message.tags == 'warning' %}warning{% else %}info{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-col">
+            <h4>AUTO.RIA</h4>
+            <a href="#">Про нас</a>
+            <a href="#">Новини</a>
+            <a href="#">Карта сайту</a>
+            <a href="#">Допомога 24/7</a>
+        </div>
+        <div class="footer-col">
+            <h4>Для покупців</h4>
+            <a href="#">Авто з пробігом</a>
+            <a href="#">Нові авто</a>
+            <a href="#">Перевірка VIN</a>
+            <a href="#">Середня ціна авто</a>
+        </div>
+        <div class="footer-col">
+            <h4>Для продавців</h4>
+            <a href="{% url 'users:register' %}">Розмістити оголошення</a>
+            <a href="#">Тарифи</a>
+            <a href="#">Автодилери</a>
+        </div>
+        <div class="footer-col">
+            <h4>Безпека</h4>
+            <a href="#">Правила безпечної угоди</a>
+            <a href="#">Угода про послуги</a>
+            <a href="#">Політика конфіденційності</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2014–2026 RIA.com &nbsp;·&nbsp; AUTO.RIA — лідер автомобільної інтернет-торгівлі
+    </div>
+</footer>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

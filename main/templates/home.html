@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+
+{% block title %}AUTO.RIA — Продаж авто в Україні{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* ─── HERO SEARCH ─── */
+    .hero {
+        background: linear-gradient(135deg, #c0392b 0%, #db5c4c 50%, #e8755c 100%);
+        padding: 32px 0 28px;
+        color: #fff;
+    }
+    .hero h1 {
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+    .hero h1 span { color: #ffd700; }
+
+    .search-form {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        padding: 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+    .search-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .search-row-2 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr) auto;
+        gap: 10px;
+        align-items: end;
+    }
+    .form-group label {
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        margin-bottom: 4px;
+    }
+    .input-range {
+        display: flex;
+        gap: 6px;
+    }
+    .input-range .form-input { width: 50%; }
+    .btn-search {
+        background: var(--red);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius);
+        padding: 10px 28px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+        height: 42px;
+        transition: background .15s;
+    }
+    .btn-search:hover { background: var(--red-dark); }
+
+    /* ─── RESULTS BAR ─── */
+    .results-bar {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 12px 0;
+    }
+    .results-bar-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .results-count {
+        font-size: 14px;
+        color: var(--gray-text);
+    }
+    .results-count strong { color: var(--dark); font-size: 18px; }
+
+    /* ─── LISTING GRID ─── */
+    .listing-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 16px 0;
+    }
+
+    /* ─── CAR CARD (horizontal) ─── */
+    .car-card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        overflow: hidden;
+        transition: box-shadow .15s, transform .1s;
+        position: relative;
+    }
+    .car-card:hover {
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-1px);
+    }
+    .car-card__photo {
+        position: relative;
+        height: 200px;
+        background: #f0f0f0;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    .car-card__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .3s;
+    }
+    .car-card:hover .car-card__photo img { transform: scale(1.03); }
+    .car-card__photo-count {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        background: rgba(0,0,0,.55);
+        color: #fff;
+        font-size: 11px;
+        padding: 2px 7px;
+        border-radius: 3px;
+    }
+    .car-card__verified {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background: var(--green);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+    .car-card__photo-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: #ccc;
+    }
+
+    .car-card__body {
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .car-card__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .car-card__title {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.3;
+    }
+    .car-card__title a { color: var(--dark); }
+    .car-card__title a:hover { color: var(--red); }
+    .car-card__price-block { text-align: right; flex-shrink: 0; }
+    .car-card__price-usd {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--dark);
+    }
+    .car-card__price-uah {
+        font-size: 12px;
+        color: var(--gray-text);
+        margin-top: 1px;
+    }
+    .car-card__specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .spec-chip {
+        background: var(--gray-bg);
+        border: 1px solid var(--gray-light);
+        border-radius: 4px;
+        padding: 3px 9px;
+        font-size: 12px;
+        color: #555;
+        white-space: nowrap;
+    }
+    .car-card__location {
+        font-size: 12px;
+        color: var(--gray-text);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .car-card__badges { display: flex; gap: 5px; flex-wrap: wrap; }
+    .car-card__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 8px;
+        border-top: 1px solid var(--gray-light);
+    }
+    .car-card__date { font-size: 11px; color: #bbb; }
+    .car-card__views { font-size: 11px; color: #bbb; }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--gray-text);
+    }
+    .empty-state h3 { font-size: 18px; margin-bottom: 8px; color: var(--dark); }
+
+    @media (max-width: 768px) {
+        .search-row, .search-row-2 { grid-template-columns: 1fr 1fr; }
+        .car-card { grid-template-columns: 1fr; }
+        .car-card__photo { height: 220px; }
+    }
+    @media (max-width: 480px) {
+        .search-row, .search-row-2 { grid-template-columns: 1fr; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- HERO SEARCH -->
+<section class="hero">
+    <div class="container">
+        <h1>Знайдіть своє <span>ідеальне авто</span></h1>
+        <div class="search-form">
+            <form method="get" action="">
+                <div class="search-row">
+                    <div class="form-group">
+                        <label>Марка</label>
+                        <select name="brand" class="form-input">
+                            <option value="">Всі марки</option>
+                            {% for b in brands %}
+                                <option value="{{ b }}" {% if filters.brand == b %}selected{% endif %}>{{ b }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Модель</label>
+                        <input type="text" name="model" class="form-input" placeholder="Будь-яка" value="{{ filters.model }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Рік</label>
+                        <div class="input-range">
+                            <input type="number" name="year_from" class="form-input" placeholder="від" value="{{ filters.year_from }}" min="1990" max="2026">
+                            <input type="number" name="year_to" class="form-input" placeholder="до" value="{{ filters.year_to }}" min="1990" max="2026">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ціна ($)</label>
+                        <div class="input-range">
+                            <input type="number" name="price_from" class="form-input" placeholder="від" value="{{ filters.price_from }}">
+                            <input type="number" name="price_to" class="form-input" placeholder="до" value="{{ filters.price_to }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="search-row-2">
+                    <div class="form-group">
+                        <label>Паливо</label>
+                        <select name="fuel" class="form-input">
+                            <option value="">Будь-яке</option>
+                            {% for val, label in fuel_choices %}
+                                <option value="{{ val }}" {% if filters.fuel == val %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>КПП</label>
+                        <select name="transmission" class="form-input">
+                            <option value="">Будь-яка</option>
+                            {% for val, label in transmission_choices %}
+                                <option value="{{ val }}" {% if filters.transmission == val %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Область</label>
+                        <select name="region" class="form-input">
+                            <option value="">Вся Україна</option>
+                            {% for r in regions %}
+                                <option value="{{ r }}" {% if filters.region == r %}selected{% endif %}>{{ r }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <a href="{% url 'cars:home' %}" class="btn btn-gray" style="width:100%; justify-content:center; height:42px;">Скинути</a>
+                    </div>
+                    <button type="submit" class="btn-search">🔍 Знайти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- RESULTS BAR -->
+<div class="results-bar">
+    <div class="results-bar-inner">
+        <div class="results-count">
+            Знайдено <strong>{{ total_count }}</strong> оголошень
+        </div>
+        <div style="font-size:12px; color:#999;">
+            Сортування: за датою додавання
+        </div>
+    </div>
+</div>
+
+<!-- LISTINGS -->
+<div class="container page-content">
+    <div class="listing-layout">
+        {% for car in cars %}
+        <article class="car-card">
+            <!-- Photo -->
+            <a href="{{ car.get_absolute_url }}" class="car-card__photo">
+                {% with main=car.main_photo %}
+                    {% if main %}
+                        <img src="{{ main.image.url }}" alt="{{ car.brand }} {{ car.model }} {{ car.year }}" loading="lazy">
+                    {% else %}
+                        <div class="car-card__photo-placeholder">🚗</div>
+                    {% endif %}
+                {% endwith %}
+                {% if car.is_verified %}
+                    <div class="car-card__verified">✔ Перевірено</div>
+                {% endif %}
+                {% with count=car.photos.count %}
+                    {% if count > 1 %}
+                        <span class="car-card__photo-count">📷 {{ count }}</span>
+                    {% endif %}
+                {% endwith %}
+            </a>
+
+            <!-- Body -->
+            <div class="car-card__body">
+                <div class="car-card__header">
+                    <div class="car-card__title">
+                        <a href="{{ car.get_absolute_url }}">{{ car.brand }} {{ car.model }} {{ car.year }}</a>
+                    </div>
+                    <div class="car-card__price-block">
+                        <div class="car-card__price-usd">{{ car.price_usd|floatformat:0 }} $</div>
+                        <div class="car-card__price-uah">{{ car.price_uah|floatformat:0 }} грн</div>
+                    </div>
+                </div>
+
+                <div class="car-card__specs">
+                    <span class="spec-chip">{{ car.mileage_km }} тис. км</span>
+                    <span class="spec-chip">{{ car.get_transmission_display }}</span>
+                    <span class="spec-chip">{{ car.get_fuel_display }}, {{ car.engine_volume }} л</span>
+                    <span class="spec-chip">{{ car.get_body_type_display }}</span>
+                </div>
+
+                <div class="car-card__location">
+                    📍 {{ car.city }}, {{ car.region }}
+                </div>
+
+                <div class="car-card__badges">
+                    {% if car.is_first_registration %}
+                        <span class="badge badge-blue">Перша реєстрація</span>
+                    {% endif %}
+                    {% if car.imported_from %}
+                        <span class="badge badge-orange">Пригнано з {{ car.imported_from }}</span>
+                    {% endif %}
+                    {% if car.vin_code %}
+                        <span class="badge badge-green">Перевірений VIN</span>
+                    {% endif %}
+                </div>
+
+                <div class="car-card__footer">
+                    <span class="car-card__date">{{ car.created_at|date:"d M Y" }}</span>
+                    <span class="car-card__views">👁 {{ car.views_count }} переглядів</span>
+                </div>
+            </div>
+        </article>
+        {% empty %}
+        <div class="empty-state">
+            <div style="font-size:64px; margin-bottom:12px;">🚗</div>
+            <h3>Оголошення не знайдені</h3>
+            <p>Спробуйте змінити параметри пошуку</p>
+            <a href="{% url 'cars:home' %}" class="btn btn-red" style="margin-top:16px; display:inline-flex;">Скинути фільтри</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
