@@ -1,0 +1,30 @@
+<div class="gallery">
+    <div class="gallery__main">
+        <button class="gallery__arrow gallery__arrow--left" onclick="galleryPrev()" aria-label="Назад">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}" class="gallery__image" id="galleryImage">
+        <button class="gallery__arrow gallery__arrow--right" onclick="galleryNext()" aria-label="Вперед">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+        <span class="gallery__counter" id="galleryCounter">1 з 6</span>
+    </div>
+    <div class="gallery__thumbs">
+        <div class="gallery__thumbs-viewport">
+            <div class="gallery__thumbs-track" id="galleryThumbs">
+                <div class="gallery__thumb gallery__thumb--active" onclick="galleryGo(0)"><img src="{{ car.image }}" alt=""></div>
+                <div class="gallery__thumb" onclick="galleryGo(1)"><img src="{{ car.image }}" alt=""></div>
+                <div class="gallery__thumb" onclick="galleryGo(2)"><img src="{{ car.image }}" alt=""></div>
+                <div class="gallery__thumb" onclick="galleryGo(3)"><img src="{{ car.image }}" alt=""></div>
+                <div class="gallery__thumb" onclick="galleryGo(4)"><img src="{{ car.image }}" alt=""></div>
+                <div class="gallery__thumb" onclick="galleryGo(5)"><img src="{{ car.image }}" alt=""></div>
+            </div>
+            <button class="gallery__thumb-arrow gallery__thumb-arrow--left" onclick="galleryPrev()" aria-label="Назад">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="gallery__thumb-arrow gallery__thumb-arrow--right" onclick="galleryNext()" aria-label="Вперед">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 6 15 12 9 18"/></svg>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1642 @@
+/* --- Стрілки каруселі --- */
+.carousel-arrows {
+    display: flex;
+    gap: 14px;
+}
+
+.carousel-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #2c2c2c;
+    background: transparent;
+    color: #2c2c2c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.dropdown__brand-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.carousel-arrow:hover {
+    background-color: #f0f0f0;
+}
+
+.carousel-arrow.disabled {
+    border-color: #ccc;
+    color: #ccc;
+    pointer-events: none;
+}
+
+/* --- Карусель --- */
+.carousel {
+    overflow: hidden;
+    padding: 8px 8px;
+    margin: -8px -8px;
+}
+
+.carousel__track {
+    display: flex;
+    gap: 16px;
+    transition: transform 0.4s ease;
+}
+
+
+/* ================================================
+   ПРОДОВЖИТИ ПОШУК
+   ================================================ */
+.search-card {
+    flex: 0 0 calc(33.333% - 11px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+}
+
+.search-card:hover {
+    /*box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);*/
+}
+
+.search-card:hover .search-card__title,
+.search-card:hover .search-card__sub {
+    text-decoration: underline;
+}
+
+.search-card__icon {
+    flex-shrink: 0;
+}
+
+.search-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.search-card__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c2c2c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-card__sub {
+    font-size: 13px;
+    color: #2c2c2c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ================================================
+   ВІДЕОПОВІДОМЛЕННЯ
+   ================================================ */
+.video-card {
+    flex: 0 0 calc(11.111% - 14px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.video-card__circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #e0d0f0;
+    transition: transform 0.2s;
+}
+
+.video-card:hover .video-card__circle {
+    transform: scale(1.06);
+}
+
+.video-card__circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-card__name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #131313;
+    text-align: center;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ================================================
+   СЬОГОДНІ НА AUTO.RIA
+   ================================================ */
+.today-card {
+    flex: 0 0 calc(33.333% - 11px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+}
+
+.today-card:hover {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+}
+
+.today-card:hover .today-card__title {
+    text-decoration: underline;
+}
+
+.today-card__img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.today-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.today-card__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+.today-card__desc {
+    font-size: 15px;
+    color: #222222;
+}
+
+/* ================================================
+   КАТАЛОГ АВТОМОБІЛІВ
+   ================================================ */
+.section-catalog { padding: 32px 0; }
+.section-catalog .section-title { margin-bottom: 16px; }
+
+/* --- Шапка з табами і сортуванням --- */
+.catalog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* --- Табки --- */
+.catalog-tabs {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 50px;
+    width: fit-content;
+}
+.catalog-tab {
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+.catalog-tab:hover { background: #e0e0e0; }
+.catalog-tab--active { background: #2c2c2c; color: #fff; }
+.catalog-tab--active:hover { background: #2c2c2c; }
+
+/* --- Кнопка сортування --- */
+.catalog-sort { position: relative; }
+.catalog-sort__btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c2c2c;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 8px 0;
+}
+.catalog-sort__btn:hover { text-decoration: none; }
+.catalog-sort__btn svg { flex-shrink: 0; }
+
+/* --- Дропдаун сортування --- */
+.catalog-sort__dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    padding: 8px 0;
+    z-index: 100;
+    min-width: 200px;
+}
+.catalog-sort__dropdown.is-open { display: block; }
+
+.catalog-sort__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #2c2c2c;
+    transition: background-color 0.15s;
+}
+.catalog-sort__option:hover { background-color: #f5f5f5; }
+
+.catalog-sort__radio {
+    appearance: none;
+    width: 22px; height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+}
+.catalog-sort__radio:checked { border-color: #2c2c2c; }
+.catalog-sort__radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px; left: 4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #2c2c2c;
+}
+
+/* --- Панелі --- */
+.catalog-panel { display: none; }
+.catalog-panel--active { display: block; }
+
+/* --- Грід 4 колонки --- */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+/* --- Колонка-картка --- */
+.catalog-col {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    padding: 4px 0;
+    transition: box-shadow 0.2s;
+}
+.catalog-col:hover { box-shadow: 0 2px 14px rgba(0,0,0,0.13); }
+
+/* --- catalog-data обгортка (display:contents коли активна) --- */
+.catalog-data { display: none; }
+.catalog-data--active { display: contents; }
+
+/* --- Рядок-елемент --- */
+.catalog-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: #2c2c2c;
+    transition: background-color 0.15s;
+}
+.catalog-item:hover { background-color: #fafafa; }
+.catalog-item:hover .catalog-item__name { text-decoration: underline; }
+
+.catalog-item__name {
+    font-size: 16px;
+    /*font-weight: 500;*/
+    color: #2c2c2c;
+    flex: 1;
+    min-width: 0;
+}
+.catalog-item__count {
+    background: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2024;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* --- Опис знизу --- */
+.catalog-desc {
+    margin-top: 24px;
+    font-size: 16px;
+    color: #1e1e1e;
+    line-height: 1.6;
+}
+
+/* ================================================
+   ТАБКИ КАТЕГОРІЙ
+   ================================================ */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.tab {
+    padding: 12px 14px;
+    border-radius: 50px;
+    border: 2px solid #e3e3e3;
+    background: transparent;
+    font-size: 16px;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.tab:hover {
+    border-color: #9e9e9e;
+}
+
+.tab--active {
+    background-color: #1f2024;
+    border-color: #1f2024;
+    color: #fff;
+}
+
+.tab--active:hover {
+    background-color: #1f2024;
+    border-color: #1f2024;
+}
+
+
+/* ================================================
+   СІТКА ФІЛЬТРІВ
+   ================================================ */
+.filters__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px 16px;
+    margin-bottom: 20px;
+}
+
+
+/* ================================================
+   DROPDOWN — кастомний селект
+   ================================================ */
+.dropdown {
+    position: relative;
+}
+
+/* --- Тригер --- */
+.dropdown__trigger {
+    width: 100%;
+    padding: 14px 40px 14px 16px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 15px;
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    transition: border-color 0.2s;
+}
+
+.dropdown__trigger:hover {
+    border-color: #999;
+}
+
+.is-open .dropdown__trigger {
+    border-color: #0069b4;
+}
+
+/* --- Label на бордері --- */
+.dropdown__label {
+    display: none;
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    padding: 0 4px;
+    font-size: 11px;
+    color: #888;
+    background: #fff;
+}
+
+.dropdown__trigger.has-label .dropdown__label {
+    display: block;
+}
+
+.dropdown__trigger.has-label .dropdown__value {
+    color: #2c2c2c;
+}
+
+/* --- Значення --- */
+.dropdown__value {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* --- Стрілка --- */
+.dropdown__arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s;
+}
+
+.is-open .dropdown__arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* --- Кнопка очистки --- */
+.dropdown__clear {
+    display: none;
+    position: absolute;
+    right: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #888;
+    color: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dropdown__trigger.has-label .dropdown__clear {
+    display: block;
+}
+
+/* --- Панель --- */
+.dropdown__panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    padding: 16px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.is-open > .dropdown__panel {
+    display: block;
+}
+
+/* --- Список --- */
+.dropdown__list {
+    padding: 0 8px;
+}
+
+.dropdown__list--scroll {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+/* --- Заголовок в панелі --- */
+.dropdown__heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c2c2c;
+    padding: 8px 16px 4px;
+}
+
+/* --- Опція --- */
+.dropdown__option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.15s;
+    font-size: 15px;
+    color: #2c2c2c;
+}
+
+.dropdown__option:hover {
+    background-color: #e8f0f8;
+}
+
+/* --- Radio --- */
+.dropdown__radio {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown__radio:checked {
+    border-color: #2c2c2c;
+}
+
+.dropdown__radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2c2c2c;
+}
+
+/* --- Checkbox --- */
+.dropdown__checkbox {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown__checkbox:checked {
+    background: #2c2c2c;
+    border-color: #2c2c2c;
+}
+
+.dropdown__checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* --- Кнопка "Застосувати" --- */
+.dropdown__apply {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 12px 16px 4px;
+    padding: 14px;
+    background: #e3000f;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown__apply:hover {
+    background: #ff1a2a;
+}
+
+
+/* ================================================
+   МАРКА, МОДЕЛЬ — каскадний
+   ================================================ */
+.brand-search {
+    padding: 0 16px 8px;
+}
+
+.brand-search__field {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 10px 12px;
+    position: relative;
+}
+
+.brand-search__label {
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    padding: 0 4px;
+    font-size: 11px;
+    color: #888;
+    background: #fff;
+}
+
+.brand-search__value {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+}
+
+.brand-search__clear {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #888;
+    color: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/* ================================================
+   РІК ВИПУСКУ — дві колонки
+   ================================================ */
+.year-range {
+    display: flex;
+}
+
+.year-range__col {
+    flex: 1;
+    border-right: 1px solid #eee;
+}
+
+.year-range__col:last-child {
+    border-right: none;
+}
+
+.year-range__col .dropdown__list--scroll {
+    max-height: 260px;
+}
+
+
+/* ================================================
+   ВАРТІСТЬ — інпути + валюта
+   ================================================ */
+.price-inputs {
+    padding: 0 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-inputs__field {
+    position: relative;
+}
+
+.price-inputs__field--labeled .price-inputs__label {
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    padding: 0 4px;
+    font-size: 11px;
+    color: #888;
+    background: #fff;
+}
+
+.price-inputs__input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2c2c2c;
+}
+
+.price-inputs__input:focus {
+    outline: none;
+    border-color: #0069b4;
+}
+
+.price-inputs__input::placeholder {
+    color: #aaa;
+}
+
+.currency-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 8px;
+}
+
+.currency-tab {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #e3e3e3;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.currency-tab:hover {
+    background-color: #eee;
+}
+
+.currency-tab--active {
+    background-color: #2c2c2c;
+    border-color: #2c2c2c;
+    color: #fff;
+}
+
+
+/* ================================================
+   КНОПКИ ПОШУКУ
+   ================================================ */
+.filters__actions {
+    display: flex;
+    gap: 16px;
+    max-width: calc(50% - 8px);
+}
+
+.btn-search {
+    flex: 1;
+    padding: 14px 24px;
+    background-color: #cc3737;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-search:hover {
+    background-color: #ec2735;
+}
+
+.btn-advanced {
+    flex: 1;
+    padding: 14px 24px;
+    background: transparent;
+    color: #2c2c2c;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-advanced:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown__brand-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+
+.search-wrap {
+    background-color: #e2f0fb;
+    padding: 24px 0;
+}
+
+.search-section {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 24px 36px;
+}
+
+.search-section__title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+}
+
+.section-continue, .section-video, .section-today {
+    padding: 20px 0;
+    max-width: 1230px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    margin-top: 6px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+/* ================================================
+   НОВИНИ ПРО АВТО
+   ================================================ */
+.section-news {
+    padding: 20px 0;
+}
+
+.section-news .section-title {
+    margin-bottom: 16px;
+}
+
+/* --- Табки новин --- */
+.news-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.news-tab {
+    padding: 14px 18px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.news-tab:hover {
+    background-color: #f0f0f0;
+}
+
+.news-tab--active {
+    background-color: #2c2c2c;
+    border-color: #2c2c2c;
+    color: #fff;
+}
+
+.news-tab--active:hover {
+    background-color: #2c2c2c;
+}
+
+/* --- Контент --- */
+.news-content {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 12px;
+}
+
+.news-main {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    aspect-ratio: 3 / 2;
+}
+
+.news-main__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-main__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: #fff;
+}
+
+.news-main__label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.news-main__title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* --- Бокові новини --- */
+.news-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    /*padding: 12px 0;*/
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 26px;
+    margin-left: 6px;
+}
+
+.news-item:last-of-type {
+    border-bottom: none;
+}
+
+.news-item:hover .news-item__title {
+    text-decoration: underline;
+}
+
+.news-item__img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.news-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.news-item__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c2c2c;
+    line-height: 1.4;
+}
+
+.news-item__date {
+    font-size: 13px;
+    color: #79797c;
+}
+
+/* --- Читати все --- */
+.news-read-all {
+    grid-column: 2;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    width: 50%;
+    margin-top: -20px;
+}
+
+.news-read-all:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* ================================================
+   AUTO.RIA РЕКОМЕНДУЄ (посилання)
+   ================================================ */
+.section-ria-links {
+    padding: 12px 0;
+}
+
+.section-ria-links .section-title {
+    margin-bottom: 16px;
+}
+
+.ria-tabs {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 50px;
+    /*padding: 4px;*/
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.ria-panel {
+    display: none;
+}
+
+.ria-panel--active {
+    display: block;
+}
+
+.transport-links--2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* ================================================
+   AUTO.RIA РЕКОМЕНДУЄ
+   ================================================ */
+.section-recs {
+    padding: 32px 0;
+}
+
+.section-recs .section-title {
+    margin-bottom: 20px;
+}
+
+.recs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* --- Картка --- */
+.car-card {
+    border-radius: 12px;
+}
+
+.car-card__visual {
+    transition: box-shadow 0.2s;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07);
+}
+
+.car-card__visual:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.car-card__visual:hover .car-card__name,
+.car-card__visual:hover .car-card__price-usd {
+    text-decoration: underline;
+}
+
+/* Приховані після 9 */
+.car-card:nth-child(n+10) {
+    display: none;
+}
+
+.recs-grid.show-all .car-card:nth-child(n+10) {
+    display: block;
+}
+
+/* --- Зображення --- */
+.car-card__image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.car-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Кнопка закрити --- */
+.car-card__close {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.car-card__close:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* --- Кнопка лайк --- */
+.car-card__fav {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #2c2c2c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s;
+}
+
+.car-card__fav:hover {
+    background-color: #f0f0f0;
+}
+
+.car-card__fav.is-liked svg {
+    fill: #e3000f;
+    stroke: #e3000f;
+}
+
+/* --- Бейджі --- */
+.car-card__badges {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/*.car-card__vin {*/
+/*    background: rgba(0,0,0,0.6);*/
+/*    color: #fff;*/
+/*    font-size: 12px;*/
+/*    font-weight: 600;*/
+/*    padding: 5px 10px;*/
+/*    border-radius: 4px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 4px;*/
+/*}*/
+
+.car-card__plate {
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #2c2c2c;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 28px;
+}
+
+.car-card__plate-blue {
+    background: #005bbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 4px;
+    gap: 1px;
+}
+
+.car-card__plate-flag {
+    width: 12px;
+    height: 8px;
+    border-radius: 1px;
+    background: linear-gradient(to bottom, #005bbb 50%, #ffd500 50%);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.car-card__plate-ua {
+    font-size: 7px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.car-card__plate-number {
+    background: #fff;
+    color: #2c2c2c;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+/* --- Тіло картки --- */
+.car-card__body {
+    display: block;
+    padding: 18px 16px 14px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.car-card__name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 10px;
+}
+
+/* --- Ціна --- */
+.car-card__price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.car-card__price-usd {
+    font-size: 20px;
+    font-weight: 600;
+    color: #07b75f;
+}
+
+.car-card__price-dot {
+    color: #2c2c2c;
+    font-size: 15px;
+}
+
+.car-card__price-uah {
+    font-size: 16px;
+    color: #2c2c2c;
+}
+
+/* --- Характеристики --- */
+.car-card__specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    margin-bottom: 14px;
+}
+
+.car-card__spec {
+    font-size: 15px;
+    color: #2c2c2c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.spec-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #2c2c2c;
+}
+
+.car-card__posted {
+    font-size: 13px;
+    color: #79797c;
+}
+
+/* --- Бейджі (VIN більший) --- */
+.car-card__vin {
+    background: rgb(31 32 36);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/*.car-card__plate {*/
+/*    background: #fff;*/
+/*    color: #2c2c2c;*/
+/*    font-size: 13px;*/
+/*    font-weight: 600;*/
+/*    padding: 6px 12px;*/
+/*    border-radius: 6px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 5px;*/
+/*}*/
+
+/* --- Блок "Приховано" --- */
+.car-card__hidden {
+    display: none;
+}
+
+.car-card__hidden-inner {
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+}
+
+.car-card__hidden-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.car-card__hidden-header span {
+    font-size: 16px;
+    /*font-weight: 600;*/
+    color: #2c2c2c;
+}
+
+.car-card__hidden-text {
+    font-size: 16px;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    padding-left: 30px;
+}
+
+.car-card__hidden-btn {
+    margin-left: 30px;
+    padding: 12px 20px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.car-card__hidden-btn:hover {
+    background: #f0f0f0;
+}
+
+/* --- Тост --- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #2c2c2c;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    font-size: 15px;
+    font-weight: 600;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* --- "Показати ще" --- */
+.recs-more-wrap {
+    text-align: center;
+    padding: 24px 0 0 0;
+}
+
+.recs-more-btn {
+    padding: 14px 150px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.recs-more-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.recs-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px 24px;
+    border: 1px dashed #d9d9d9;
+    border-radius: 12px;
+    color: #666;
+    font-size: 16px;
+}
+
+.recs-empty a {
+    color: #2c2c2c;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* ================================================
+   ТИПИ ТРАНСПОРТУ
+   ================================================ */
+.section-transport {
+    padding: 24px 0 0 0;
+}
+
+.section-transport .section-title {
+    margin-bottom: 16px;
+}
+
+/* --- Табки --- */
+.transport-tabs {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 50px;
+    /* padding: 4px; */
+    margin-bottom: 24px;
+    width: fit-content;
+}
+
+.transport-tab {
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.transport-tab:hover {
+    background: #e0e0e0;
+}
+
+.transport-tab--active {
+    background: #1f2024;
+    color: #fff;
+}
+
+.transport-tab--active:hover {
+    background: #2c2c2c;
+}
+
+/* --- Панелі --- */
+.transport-panel {
+    display: none;
+}
+
+.transport-panel--active {
+    display: block;
+}
+
+/* --- Сітка брендів --- */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s;
+}
+
+.brand-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.brand-card:hover .brand-card__name {
+    text-decoration: underline;
+}
+
+.brand-card__logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.brand-card__name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-align: center;
+}
+
+/* "Дивитись всі" */
+.brand-card--all {
+    justify-content: center;
+}
+
+.brand-card__arrow {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c2c2c;
+}
+
+/* --- Посилання (мото, вантажівки і тд) --- */
+.transport-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.transport-links a {
+    padding: 14px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-decoration: underline;
+    transition: text-decoration 0.2s;
+}
+
+.transport-links a:hover {
+    text-decoration: none;
+}
+
+
+/* ================================================
+   ОЦІНКА СТОРІНКИ
+   ================================================ */
+.section-rating {
+    padding: 32px 0 16px;
+}
+
+.rating-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rating-card__title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 4px;
+}
+
+.rating-card__desc {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #252525;
+}
+
+/* --- Зірки --- */
+.rating-stars {
+    display: flex;
+    gap: 14px;
+}
+
+.star-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.star-item span {
+    font-size: 13px;
+    color: #333333;
+}
+
+.star-svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: #2c2c2c;
+    stroke-width: 2;
+    transition: fill 0.15s;
+}
+
+.star-item.active .star-svg,
+.star-item.hovered .star-svg {
+    fill: #2c2c2c;
+    stroke: #2c2c2c;
+}

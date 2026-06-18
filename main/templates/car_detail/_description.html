@@ -1,0 +1,113 @@
+<div class="detail-desc">
+    <h2 class="detail-desc__title">Опис від продавця</h2>
+
+    <p class="detail-desc__text">{{ car.description }}</p>
+    <p class="detail-desc__body">{{ car.body_type_display }} &middot; {{ car.doors }} дверей &middot; {{ car.seats }} місць</p>
+
+    <a href="#" class="detail-desc__check">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Що перевірити перед покупкою?
+    </a>
+
+    <!-- Основні характеристики (завжди видимі) -->
+    <div class="specs-grid">
+        <div class="specs-item">
+            <span class="specs-item__label">Покоління, комплектація, модифікація</span>
+            <span class="specs-item__value">{{ car.generation }}, {{ car.modification }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Привід</span>
+            <span class="specs-item__value">{{ car.drive_display }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Двигун</span>
+            <span class="specs-item__value">{{ car.engine }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Колір</span>
+            <span class="specs-item__value">{{ car.color }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Екологічний стандарт</span>
+            <span class="specs-item__value">{{ car.eco_standard }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Стан</span>
+            <span class="specs-item__value">{{ car.state }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Коробка передач</span>
+            <span class="specs-item__value">{{ car.get_transmission_display }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Витрати пального (л/100км)</span>
+            <span class="specs-item__value">місто {{ car.fuel_city }} &middot; траса {{ car.fuel_highway }} &middot; змішаний {{ car.fuel_mixed }}</span>
+        </div>
+    </div>
+
+    <!-- Додаткові характеристики (приховані) -->
+    <div class="specs-grid specs-grid--extra" id="specsExtra">
+        <div class="specs-item">
+            <span class="specs-item__label">Безпека</span>
+            <span class="specs-item__value">{{ car.safety }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Кондиціонер</span>
+            <span class="specs-item__value">{{ car.conditioning }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Комфорт</span>
+            <span class="specs-item__value">{{ car.comfort }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Підсилювач керма</span>
+            <span class="specs-item__value">{{ car.power_steering }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Мультимедіа</span>
+            <span class="specs-item__value">{{ car.multimedia }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Регулювання керма</span>
+            <span class="specs-item__value">{{ car.steering_adjustment }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Фари</span>
+            <span class="specs-item__value">{{ car.headlights }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Запасне колесо</span>
+            <span class="specs-item__value">{{ car.spare_wheel }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Матеріали салону</span>
+            <span class="specs-item__value">{{ car.interior_material }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Оптика</span>
+            <span class="specs-item__value">{{ car.optics }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Колір салону</span>
+            <span class="specs-item__value">{{ car.interior_color }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Система допомоги при паркуванні</span>
+            <span class="specs-item__value">{{ car.parking_help }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Регулювання сидінь</span>
+            <span class="specs-item__value">{{ car.seat_adjustment }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Подушка безпеки</span>
+            <span class="specs-item__value">{{ car.airbags }}</span>
+        </div>
+        <div class="specs-item">
+            <span class="specs-item__label">Електросклопідйомники</span>
+            <span class="specs-item__value">{{ car.electric_windows }}</span>
+        </div>
+    </div>
+
+    <button class="specs-toggle" id="specsToggle" onclick="toggleSpecs()">Дивитись всі опції</button>
+</div>

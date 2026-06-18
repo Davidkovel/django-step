@@ -83,6 +83,32 @@ class Car(models.Model):
     def price_uah(self):
         return self.price_usd * 41
 
+    @property
+    def engine(self):
+        """Удобочитаемая строка двигателя для шаблонов карточек, напр. 'Дизель, 2.99 л'."""
+        return f'{self.get_fuel_display()}, {self.engine_volume} л'
+
+    @property
+    def plate(self):
+        """Алиас под license_plate, чтобы шаблоны могли писать {{ car.plate }}."""
+        return self.license_plate
+
+    @property
+    def mileage(self):
+        """Алиас под mileage_km."""
+        return self.mileage_km
+
+    @property
+    def posted(self):
+        """Человекочитаемая дата публикации, напр. '17 червня 2026'."""
+        return self.created_at.strftime('%d.%m.%Y')
+
+    @property
+    def image(self):
+        """Удобный доступ к URL главного фото (или пустая строка, если фото нет)."""
+        photo = self.main_photo
+        return photo.image.url if photo else ''
+
 
 class CarPhoto(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='photos')

@@ -1,0 +1,91 @@
+{% load static %}
+
+<div class="learn-more">
+    <h2 class="learn-more__title">Дізнайтесь більше про авто</h2>
+
+    <!-- Виїзна перевірка (без картинки, кнопка справа) -->
+    <div class="learn-card learn-card--simple">
+        <div class="learn-card__body">
+            <h3 class="learn-card__name">Виїзна перевірка AUTO.RIA</h3>
+            <p class="learn-card__desc">Перевірте технічний стан авто з експертом або дистанційно з відеозвітом</p>
+        </div>
+        <button class="learn-card__btn">
+            Замовити перевірку
+            <span class="learn-card__new">NEW</span>
+        </button>
+    </div>
+
+    <!-- Розширена історія -->
+    <div class="learn-card">
+        <div class="learn-card__body">
+            <div class="learn-card__top">
+                <div>
+                    <h3 class="learn-card__name">Розширена історія авто в Україні, країнах Європи, США та Південній Кореї</h3>
+                    <p class="learn-card__desc">Дізнайтесь, що відомо про авто у міжнародних реєстрах</p>
+                </div>
+                <img src="{% static 'images/car_detail/learn_more_2.png' %}" alt="" class="learn-card__img">
+            </div>
+            <div class="learn-card__tags">
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Історія пробігу</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>ДТП та страхові випадки</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Ремонти у офіц. дилера</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Комплектація авто</span>
+            </div>
+            <div class="learn-card__footer">
+                <span class="learn-card__price">від 150 грн</span>
+                <button class="learn-card__btn">Замовити</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carfax -->
+    <div class="learn-card">
+        <div class="learn-card__body">
+            <div class="learn-card__top">
+                <div>
+                    <h3 class="learn-card__name">Замов розширену перевірку історії авто в США та Канаді</h3>
+                    <p class="learn-card__desc">На основі звітів Carfax</p>
+                </div>
+                <img src="{% static 'images/car_detail/learn_more_3.png' %}" alt="" class="learn-card__img">
+            </div>
+            <div class="learn-card__tags">
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Історія пробігу</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Історія реєстрацій</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Страхові випадки</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>ДТП</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Угони</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Арешти</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Інші обтяження</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Ремонти у офіц. дилера</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Використання в таксі</span>
+            </div>
+            <div class="learn-card__footer">
+                <span class="learn-card__price">від 85 грн</span>
+                <button class="learn-card__btn">Замовити</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Технічна перевірка -->
+    <div class="learn-card">
+        <div class="learn-card__body">
+            <div class="learn-card__top">
+                <div>
+                    <h3 class="learn-card__name">Технічна перевірка на СТО</h3>
+                    <p class="learn-card__desc">Звіт про технічний стан по 27 параметрам від Сертифікованого центру перевірки AUTO.RIA</p>
+                </div>
+                <img src="{% static 'images/car_detail/learn_more_3.png' %}" alt="" class="learn-card__img">
+            </div>
+            <div class="learn-card__tags">
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Стан кузова</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Технічний стан</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Стан салону</span>
+                <span class="learn-tag"><svg class="learn-tag__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Тестова поїздка</span>
+            </div>
+            <div class="learn-card__footer">
+                <span class="learn-card__price">від 2 640 грн</span>
+                <button class="learn-card__btn">Замовити</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="vin-check">
+    <h2 class="vin-check__title">Перевірено AUTO.RIA по VIN-коду</h2>
+
+    <div class="vin-check__header">
+        <span class="detail-vin-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            {{ car.vin }}
+        </span>
+        <button class="detail-copy" onclick="copyVin('{{ car.vin }}')" aria-label="Копіювати VIN">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+    </div>
+
+    <!-- Застави -->
+    <div class="vin-card">
+        <div class="vin-card__head">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#1a8a1a" stroke="none"><circle cx="12" cy="12" r="12"/><polyline points="7 12 10 15 17 9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+                <span class="vin-card__name">Застави, оренди, обтяження</span>
+                <span class="vin-card__date">Перевірено 3 червня 2026</span>
+            </div>
+        </div>
+        <div class="vin-card__row">
+            <span class="vin-card__label">Тип обтяження</span>
+            <span class="vin-card__value">не виявлено</span>
+        </div>
+        <div class="vin-card__row">
+            <span class="vin-card__label">Обмеження відчуження</span>
+            <span class="vin-card__value">дозволено відчужувати</span>
+        </div>
+    </div>
+
+    <!-- Страхові -->
+    <div class="vin-card">
+        <div class="vin-card__head">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#1a8a1a" stroke="none"><circle cx="12" cy="12" r="12"/><polyline points="7 12 10 15 17 9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+                <span class="vin-card__name">Страхові випадки</span>
+                <span class="vin-card__date">Перевірено 3 червня 2026</span>
+            </div>
+        </div>
+        <div class="vin-card__row">
+            <span class="vin-card__label">Наявність страхового випадку</span>
+            <span class="vin-card__value">Не виявлено</span>
+        </div>
+    </div>
+
+    <!-- Пробіг і ДТП -->
+    <div class="vin-card">
+        <div class="vin-card__head">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#e3000f" stroke="none"><circle cx="12" cy="12" r="12"/><text x="12" y="17" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">!</text></svg>
+            <div>
+                <span class="vin-card__name">Пробіг і ДТП</span>
+                <span class="vin-card__date">Перевірено 20 квітня 2026</span>
+            </div>
+        </div>
+        <p class="vin-card__subtitle">Доступні дані архівної перевірки</p>
+        <div class="vin-card__row">
+            <span class="vin-card__label">Пробіг перевірено</span>
+            <span class="vin-card__value"><strong>58 тис.км</strong> &middot; 4 роки, 9 місяців тому<br>останній зафіксований від 09.08.2021 джерело фіксації - Аукціон Copart, США</span>
+        </div>
+        <div class="vin-card__row">
+            <span class="vin-card__label">Пробіг від продавця</span>
+            <span class="vin-card__value"><strong>{{ car.mileage }} тис.км</strong></span>
+        </div>
+        <div class="vin-card__row">
+            <span class="vin-card__label">ДТП</span>
+            <span class="vin-card__value"><span class="vin-card__alert">Зафіксовано ДТП</span> &middot; На території США в 2021 році із пошкодженнями передньої, задньої та лівої частин кузова</span>
+        </div>
+        <a href="#" class="vin-card__details">
+            Деталі
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+{% load static %}
+
+<div class="detail-bottom container">
+
+    <!-- Схожі оголошення -->
+    <section class="similar">
+        <h2 class="similar__title">Схожі оголошення</h2>
+        <div class="similar__wrap">
+            <button class="similar__arrow similar__arrow--left" onclick="similarPrev()" aria-label="Назад">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+            <div class="similar__track" id="similarTrack">
+                {% for s in similar_cars %}
+                <a href="{% url 'car_detail' s.id %}" class="similar-card">
+                    <div class="similar-card__img-wrap">
+                        <img src="{{ s.image }}" alt="{{ s.brand }} {{ s.model }}" class="similar-card__img">
+                    </div>
+                    <h3 class="similar-card__name">{{ s.brand }} {{ s.model }} {{ s.year }}</h3>
+                    <p class="similar-card__gen">{{ s.generation }} &middot; {{ s.modification }}</p>
+                    <span class="similar-card__price">{{ s.price|floatformat:0 }} $</span>
+                </a>
+                {% endfor %}
+                {% for s in similar_cars %}
+                <a href="{% url 'car_detail' s.id %}" class="similar-card">
+                    <div class="similar-card__img-wrap">
+                        <img src="{{ s.image }}" alt="{{ s.brand }} {{ s.model }}" class="similar-card__img">
+                    </div>
+                    <h3 class="similar-card__name">{{ s.brand }} {{ s.model }} {{ s.year }}</h3>
+                    <p class="similar-card__gen">{{ s.generation }} &middot; {{ s.modification }}</p>
+                    <span class="similar-card__price">{{ s.price|floatformat:0 }} $</span>
+                </a>
+                {% endfor %}
+            </div>
+            <button class="similar__arrow similar__arrow--right" onclick="similarNext()" aria-label="Вперед">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 6 15 12 9 18"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Нижні картки -->
+    <div class="bottom-cards">
+        <div class="bottom-card">
+            <h3 class="bottom-card__title">В додатку зручніше</h3>
+            <p class="bottom-card__desc">Завантажуйте мобільний додаток AUTO.RIA</p>
+            <button class="bottom-card__btn">Завантажити</button>
+        </div>
+        <div class="bottom-card">
+            <div class="bottom-card__rating-wrap">
+                <div>
+                    <h3 class="bottom-card__title">Оцініть, як вам нова сторінка пропозиції?</h3>
+                    <p class="bottom-card__desc">Наскільки зручні і зрозумілі ці оновлення для вас?</p>
+                </div>
+                <div class="bottom-stars" id="bottomStars">
+                    <div class="bottom-star" data-value="1">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>1</span></div>
+                    <div class="bottom-star" data-value="2">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>2</span></div>
+                    <div class="bottom-star" data-value="3">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>3</span></div>
+                    <div class="bottom-star" data-value="4">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>4</span></div>
+                    <div class="bottom-star" data-value="5">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>5</span></div>
+                    <div class="bottom-star" data-value="6">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>6</span></div>
+                    <div class="bottom-star" data-value="7">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>7</span></div>
+                    <div class="bottom-star" data-value="8">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>8</span></div>
+                    <div class="bottom-star" data-value="9">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>9</span></div>
+                    <div class="bottom-star" data-value="10">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>10</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

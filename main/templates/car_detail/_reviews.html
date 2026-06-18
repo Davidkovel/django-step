@@ -1,0 +1,65 @@
+{% load static %}
+
+<section class="reviews container">
+    <div class="reviews__header">
+        <h2 class="reviews__title">Відгуки {{ car.brand }} {{ car.model }} {{ car.year }}</h2>
+        <div class="reviews__arrows">
+            <button class="carousel-nav" onclick="reviewsPrev()" aria-label="Назад"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="carousel-nav" onclick="reviewsNext()" aria-label="Вперед"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+        </div>
+    </div>
+
+    <div class="reviews__body">
+        <!-- Рейтинг зліва -->
+        <div class="reviews-rating">
+            <div class="reviews-rating__head">
+                <span class="reviews-rating__score">4.5</span>
+                <span class="reviews-rating__label">Відгуки {{ car.brand }} {{ car.model }} {{ car.year }}</span>
+            </div>
+            <div class="reviews-rating__bars">
+                <div class="rating-bar"><span class="rating-bar__val">4.3</span><span class="rating-bar__dot">&middot;</span><span class="rating-bar__name">Надійність</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:86%"></div></div></div>
+                <div class="rating-bar"><span class="rating-bar__val">4.1</span><span class="rating-bar__dot">&middot;</span><span class="rating-bar__name">Ціна</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:82%"></div></div></div>
+                <div class="rating-bar"><span class="rating-bar__val">4.9</span><span class="rating-bar__dot">&middot;</span><span class="rating-bar__name">Дизайн</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:98%"></div></div></div>
+                <div class="rating-bar"><span class="rating-bar__val">4.9</span><span class="rating-bar__dot">&middot;</span><span class="rating-bar__name">Керування</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:98%"></div></div></div>
+                <div class="rating-bar"><span class="rating-bar__val">4.2</span><span class="rating-bar__dot">&middot;</span><span class="rating-bar__name">Комфорт</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:84%"></div></div></div>
+            </div>
+            <button class="reviews-rating__btn">Читати всі 9 відгуків</button>
+        </div>
+
+        <!-- Картки відгуків -->
+        <div class="reviews__carousel">
+            <div class="reviews__track" id="reviewsTrack">
+                <a href="#" class="review-card">
+                    <div class="review-card__img"><img src="{% static 'images/car_detail/review_1.png' %}" alt=""></div>
+                    <h4 class="review-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</h4>
+                    <p class="review-card__text">Надійний і комфортний автомобіль. За 2 роки користування намотав близько 50 тис. км. Ні разу не підві...</p>
+                    <span class="review-card__date">5 місяців тому</span>
+                </a>
+                <a href="#" class="review-card">
+                    <div class="review-card__img"><img src="{% static 'images/car_detail/review_2.png' %}" alt=""></div>
+                    <h4 class="review-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</h4>
+                    <p class="review-card__text">Авто покупав на повному заряді з мотором 2.0 дизель. Перед цим, рік їздив на такому ж, але бензин...</p>
+                    <span class="review-card__date">5 років тому</span>
+                </a>
+                <a href="#" class="review-card">
+                    <div class="review-card__img"><img src="{% static 'images/car_detail/review_3.png' %}" alt=""></div>
+                    <h4 class="review-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</h4>
+                    <p class="review-card__text">Слабый мотор, машина шумная, газ/бензин жрёт, как четырёхлитровый. Если сравнивать, ...</p>
+                    <span class="review-card__date">6 років тому</span>
+                </a>
+                <a href="#" class="review-card">
+                    <div class="review-card__img"><img src="{% static 'images/car_detail/review_4.png' %}" alt=""></div>
+                    <h4 class="review-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</h4>
+                    <p class="review-card__text">Модель очень ещё сырая, много недоработок, не советую. Лучше взять японца или немца...</p>
+                    <span class="review-card__date">7 років тому</span>
+                </a>
+                <a href="#" class="review-card">
+                    <div class="review-card__img"><img src="{% static 'images/car_detail/review_5.png' %}" alt=""></div>
+                    <h4 class="review-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</h4>
+                    <p class="review-card__text">Відмінна машина для сімї. Простора, економна, надійна. Рекомендую всім хто шукає кросовер...</p>
+                    <span class="review-card__date">9 років тому</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

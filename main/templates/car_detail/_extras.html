@@ -1,0 +1,52 @@
+<div class="detail-extras">
+
+    <!-- Знаєте більше -->
+    <div class="extras-card">
+        <div class="extras-card__top">
+            <div>
+                <h3 class="extras-card__title">Знаєте більше про це авто?</h3>
+                <p class="extras-card__desc">Напишіть коментар, і ми перевіримо, щоб все було чесно</p>
+            </div>
+            <button class="extras-card__btn">Розказати правду</button>
+        </div>
+        <div class="extras-links">
+            <a href="#" class="extras-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="20" x2="4" y2="14"/><line x1="10" y1="20" x2="10" y2="8"/><line x1="16" y1="20" x2="16" y2="4"/></svg>
+                Мої досягнення в перевірках
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="extras-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/></svg>
+                Про безпечні угоди
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="extras-stats">
+        <div class="extras-stat">
+            <span>Оголошення створене <strong>18.05.2026</strong></span>
+        </div>
+        <div class="extras-stat">
+            <span>Переглядів авто <strong>887</strong></span>
+        </div>
+        <div class="extras-stat">
+            <span>Додано в Обране <strong>23</strong></span>
+        </div>
+        <div class="extras-stat">
+            <span>ID авто <strong>39755233</strong></span>
+        </div>
+    </div>
+
+    <!-- Розстрочка -->
+    <div class="extras-credit">
+        <div class="extras-credit__body">
+            <h3 class="extras-credit__title">Оформити розстрочку на {{ car.brand }} {{ car.model }} {{ car.year }}</h3>
+            <p class="extras-credit__desc">Ти можеш дозволити собі більше. Купуй авто вже зараз!</p>
+            <p class="extras-credit__price"><strong>{{ car.credit_monthly|floatformat:0 }} грн на місяць</strong> <span class="extras-credit__dot">&middot;</span> протягом 5 років</p>
+        </div>
+        <button class="extras-card__btn">Отримати пропозицію</button>
+    </div>
+
+</div>

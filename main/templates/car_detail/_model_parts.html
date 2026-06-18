@@ -1,0 +1,100 @@
+{% load static %}
+
+<section class="model-row container">
+    <h2 class="model-row__title">Модельний ряд {{ car.brand }} на AUTO.RIA</h2>
+    <div class="model-row__grid">
+        <a href="#">Продаж {{ car.brand }} Accent</a>
+        <a href="#">Продаж {{ car.brand }} Sonata</a>
+        <a href="#">Продаж {{ car.brand }} Elantra</a>
+        <a href="#">Продаж {{ car.brand }} Santa Fe</a>
+        <a href="#">Продаж {{ car.brand }} Kona</a>
+        <a href="#">Продаж {{ car.brand }} Creta</a>
+        <a href="#">Продаж {{ car.brand }} i30</a>
+        <a href="#">Продаж {{ car.brand }} i40</a>
+        <a href="#">Продаж {{ car.brand }} Ioniq 5</a>
+    </div>
+</section>
+
+<section class="also-search container">
+    <h2 class="also-search__title">З {{ car.brand }} також шукають</h2>
+    <div class="also-search__grid">
+        <a href="#">Купити {{ car.brand }} у розстрочку</a>
+        <a href="#">калькулятор розрахунку вартості автомобіля</a>
+        <a href="#">купити {{ car.brand }} після дтп</a>
+        <a href="#">Купити авто у розстрочку у {{ car.city }}</a>
+        <a href="#">терміновий продаж авто</a>
+        <a href="#">багажник {{ car.brand }} {{ car.model }}</a>
+        <a href="#">автосалони {{ car.city }}</a>
+        <a href="#">авторозбірка {{ car.model }}</a>
+        <a href="#">Автозапчастини {{ car.brand }} {{ car.model }}</a>
+    </div>
+</section>
+
+<section class="parts container">
+    <div class="parts__header">
+        <h2 class="parts__title">Запчастини для {{ car.brand }} {{ car.model }}</h2>
+        <div class="parts__arrows">
+            <button class="carousel-nav disabled" onclick="partsPrev()" id="partsLeft" aria-label="Назад"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="carousel-nav" onclick="partsNext()" id="partsRight" aria-label="Вперед"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+        </div>
+    </div>
+    <div class="parts__carousel">
+        <div class="parts__track" id="partsTrack">
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_1.png' %}" alt=""></div>
+                <h4 class="parts-card__name">АКПП і КПП</h4>
+                <span class="parts-card__price">Від 264 до 1 602 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_2.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Деталі двигуна</h4>
+                <span class="parts-card__price">Від 493 до 2 268 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_3.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Деталі кузова</h4>
+                <span class="parts-card__price">Від 637 до 3 560 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_4.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Деталі салону</h4>
+                <span class="parts-card__price">Від 590 до 2 154 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_5.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Шини</h4>
+                <span class="parts-card__price">Від 404 до 2 620 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_6.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Гальмівна система</h4>
+                <span class="parts-card__price">Від 751 до 1 945 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_7.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Ходова частина / підвіска</h4>
+                <span class="parts-card__price">Від 568 до 2 129 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_8.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Фари</h4>
+                <span class="parts-card__price">Від 2 930 до 12 970 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_9.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Диски</h4>
+                <span class="parts-card__price">Від 3 540 до 11 530 грн</span>
+            </a>
+            <a href="#" class="parts-card">
+                <div class="parts-card__img"><img src="{% static 'images/car_detail/parts_10.png' %}" alt=""></div>
+                <h4 class="parts-card__name">Запчастини для ТО</h4>
+                <span class="parts-card__price">Від 448 до 1 577 грн</span>
+            </a>
+        </div>
+    </div>
+    <button class="parts__all-btn">Дивитись усі запчастини</button>
+</section>
+
+<div class="detail-banner">
+    <img src="{% static 'images/base/logo.svg' %}" alt="AUTO.RIA" class="detail-banner__img">
+</div>

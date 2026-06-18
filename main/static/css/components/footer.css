@@ -1,0 +1,195 @@
+/* ================================================
+   FOOTER
+   ================================================ */
+.footer {
+    background-color: rgb(31, 32, 36);
+    color: #fff;
+}
+
+/* ================================================
+   ПІДТРИМКА 24/7
+   ================================================ */
+.footer-support {
+    display: flex;
+    align-items: center;
+    padding: 32px 0;
+}
+
+/* --- Фото --- */
+.footer-support__photos {
+    display: flex;
+    flex-shrink: 0;
+}
+.footer-support__photo {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    object-fit: cover;
+}
+.footer-support__photo:not(:first-child) {
+    margin-left: -18px;
+}
+
+/* --- Текст --- */
+.footer-support__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 28px;
+}
+.footer-support__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+.footer-support__title:hover { text-decoration: underline; }
+
+.footer-support__desc {
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+}
+.footer-support__desc:hover { text-decoration: underline; }
+
+/* --- Соц. мережі --- */
+.footer-support__socials {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+.footer-social {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s;
+}
+.footer-social:hover { filter: brightness(0.8); }
+
+.footer-social--telegram { background: #2AABEE; }
+.footer-social--messenger { background: #0084FF; }
+.footer-social--viber { background: #7360F2; }
+.footer-social--chat { background: #8E7CC3; }
+.footer-social--phone {
+    background: #fff;
+    color: #2c2c2c;
+}
+
+
+/* ================================================
+   PILL-ПОСИЛАННЯ
+   ================================================ */
+.footer-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px 0 28px;
+}
+.footer-pill {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-decoration: none;
+    transition: filter 0.2s;
+    white-space: nowrap;
+}
+.footer-pill:hover {
+    filter: brightness(0.85);
+}
+
+
+/* ================================================
+   КАТЕГОРІЇ
+   ================================================ */
+.footer-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 80px;
+    padding: 28px 0;
+}
+.footer-category {
+    margin-bottom: 24px;
+}
+.footer-category:last-child { margin-bottom: 0; }
+
+.footer-category__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.footer-category__title:hover { text-decoration: underline; }
+
+.footer-category__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 1.8;
+}
+.footer-category__links a {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+.footer-category__links a:hover { text-decoration: underline; }
+
+.footer-dot {
+    color: #fff;
+    margin: 0 8px;
+    font-size: 14px;
+}
+
+
+/* ================================================
+   НИЖНЯ ПАНЕЛЬ
+   ================================================ */
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 12px;
+}
+.footer-bottom__left,
+.footer-bottom__right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.footer-bottom__link {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+.footer-bottom__link:hover { text-decoration: underline; }
+
+/* --- Мова --- */
+.footer-lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+}
+.footer-lang:hover { text-decoration: underline; }
+
+/* --- Копірайт --- */
+.footer-copyright {
+    font-size: 16px;
+    margin-top: 16px;
+    color: #dfdfdf;
+    padding-bottom: 24px;
+}

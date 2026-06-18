@@ -97,4 +97,4 @@ def car_detail(request, pk):
         'similar_cars': similar_cars,
         'photos': car.photos.all(),
     }
-    return render(request, 'cars/detail.html', context)
+    return render(request, 'car_detail.html', context)

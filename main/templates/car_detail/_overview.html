@@ -1,0 +1,89 @@
+<div class="detail-info">
+    <h1 class="detail-info__title">{{ car.brand }} {{ car.model }} {{ car.year }}</h1>
+    <p class="detail-info__gen"><strong>{{ car.generation }}</strong> &middot; {{ car.modification }}</p>
+
+    {% if car.old_price %}
+    <span class="detail-info__old-price">{{ car.old_price|floatformat:0 }} $</span>
+    {% endif %}
+
+    <div class="detail-info__price-row">
+        <span class="detail-info__price">{{ car.price|floatformat:0 }} $</span>
+        <span class="detail-info__price-dot">&middot;</span>
+        <span class="detail-info__price-uah">{{ car.price_uah|floatformat:0 }} грн</span>
+        <span class="detail-info__price-dot">&middot;</span>
+        <a href="#" class="detail-info__avg-price">
+            Середня ціна
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 17l4-8 3 5 3-7"/></svg>
+        </a>
+    </div>
+
+    <a href="#" class="detail-info__credit">
+        <svg class="detail-spec__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        від {{ car.credit_monthly|floatformat:0 }} грн/міс
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+    </a>
+
+    <div class="detail-specs">
+        <span class="detail-spec">
+            <svg class="detail-spec__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            {{ car.mileage }} тис. км
+        </span>
+        <span class="detail-spec">
+            <svg class="detail-spec__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><text x="12" y="16" text-anchor="middle" fill="currentColor" stroke="none" font-size="11" font-weight="600">A</text></svg>
+            {{ car.get_transmission_display }}
+        </span>
+        <span class="detail-spec">
+            <svg class="detail-spec__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V6a2 2 0 012-2h4l2 2h6a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><line x1="12" y1="10" x2="12" y2="16"/><line x1="9" y1="13" x2="15" y2="13"/></svg>
+            {{ car.engine }}
+        </span>
+    </div>
+
+    <p class="detail-location">UA, {{ car.region }}, {{ car.city }}, {{ car.zip_code }}</p>
+
+    <div class="detail-badges">
+        <span class="detail-plate">
+            <span class="detail-plate__blue">
+                <span class="detail-plate__flag"></span>
+                <span class="detail-plate__ua">UA</span>
+            </span>
+            <span class="detail-plate__number">{{ car.plate }}</span>
+        </span>
+        <span class="detail-vin-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            {{ car.vin }}
+        </span>
+        <button class="detail-copy" onclick="copyVin('{{ car.vin }}')" aria-label="Копіювати VIN">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+        {% for tag in car.tags %}
+        <span class="detail-tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="detail-verification">
+        <h3 class="detail-verification__title">Перевірено AUTO.RIA за офіційними відкритими державними даними</h3>
+        <div class="detail-verification__list">
+            <div class="detail-verification__item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a8a1a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ car.brand }} {{ car.model }} {{ car.year }}</span>
+            </div>
+            <div class="detail-verification__item">
+                <span class="detail-verification__color" style="background:{{ car.color_hex }}"></span>
+                <span>{{ car.color }} колір</span>
+            </div>
+            <div class="detail-verification__item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a8a1a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ car.engine }}</span>
+            </div>
+            <div class="detail-verification__item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a8a1a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Відсутній у розшуку</span>
+            </div>
+            <div class="detail-verification__item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a8a1a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ car.owners }} власник</span>
+            </div>
+        </div>
+        <p class="detail-verification__note">Інформація про перевірку є дійсною станом на 25.05.2026 року та отримана з офіційних відкритих державних даних 25.05.2026 року</p>
+    </div>
+</div>
