@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title|default:'Продати авто' }} — AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/sell.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+    {{ car_catalog|json_script:"car-catalog-data" }}
+    <script src="{% static 'js/sell/car_catalog.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="sell-page container">
+    <div class="sell-header">
+        <h1 class="sell-header__title">{{ page_title|default:'Продати авто' }}</h1>
+        <p class="sell-header__subtitle">{{ page_subtitle|default:"Заповніть параметри вашого автомобіля — після публікації оголошення з'явиться на головній сторінці" }}</p>
+    </div>
+
+    {% if messages %}
+        <div class="sell-messages">
+            {% for message in messages %}
+                <div class="sell-message sell-message--{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post" class="sell-form" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="sell-errors">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <section class="sell-section">
+            <h2 class="sell-section__title">Основна інформація</h2>
+            <div class="sell-grid">
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.brand.id_for_label }}">{{ form.brand.label }} *</label>
+                    {{ form.brand }}
+                    <datalist id="car-brand-options">
+                        {% for brand, models in car_catalog.items %}
+                            <option value="{{ brand }}"></option>
+                        {% endfor %}
+                    </datalist>
+                    {% if form.brand.errors %}<span class="sell-field__error">{{ form.brand.errors.0 }}</span>{% endif %}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.model.id_for_label }}">{{ form.model.label }} *</label>
+                    {{ form.model }}
+                    <datalist id="car-model-options"></datalist>
+                    {% if form.model.errors %}<span class="sell-field__error">{{ form.model.errors.0 }}</span>{% endif %}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.year.id_for_label }}">{{ form.year.label }} *</label>
+                    {{ form.year }}
+                    {% if form.year.errors %}<span class="sell-field__error">{{ form.year.errors.0 }}</span>{% endif %}
+                </div>
+            </div>
+        </section>
+
+        <section class="sell-section">
+            <h2 class="sell-section__title">Ціна та пробіг</h2>
+            <div class="sell-grid">
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.price_usd.id_for_label }}">{{ form.price_usd.label }} *</label>
+                    {{ form.price_usd }}
+                    {% if form.price_usd.errors %}<span class="sell-field__error">{{ form.price_usd.errors.0 }}</span>{% endif %}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.mileage.id_for_label }}">{{ form.mileage.label }} *</label>
+                    {{ form.mileage }}
+                    {% if form.mileage.errors %}<span class="sell-field__error">{{ form.mileage.errors.0 }}</span>{% endif %}
+                </div>
+            </div>
+        </section>
+
+        <section class="sell-section">
+            <h2 class="sell-section__title">Технічні характеристики</h2>
+            <div class="sell-grid">
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.engine.id_for_label }}">{{ form.engine.label }} *</label>
+                    {{ form.engine }}
+                    {% if form.engine.errors %}<span class="sell-field__error">{{ form.engine.errors.0 }}</span>{% endif %}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.transmission.id_for_label }}">{{ form.transmission.label }} *</label>
+                    {{ form.transmission }}
+                    {% if form.transmission.errors %}<span class="sell-field__error">{{ form.transmission.errors.0 }}</span>{% endif %}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.body_type.id_for_label }}">{{ form.body_type.label }}</label>
+                    {{ form.body_type }}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.drive.id_for_label }}">{{ form.drive.label }}</label>
+                    {{ form.drive }}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.color.id_for_label }}">{{ form.color.label }}</label>
+                    {{ form.color }}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.generation.id_for_label }}">{{ form.generation.label }}</label>
+                    {{ form.generation }}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.modification.id_for_label }}">{{ form.modification.label }}</label>
+                    {{ form.modification }}
+                </div>
+            </div>
+        </section>
+
+        <section class="sell-section">
+            <h2 class="sell-section__title">Місцезнаходження</h2>
+            <div class="sell-grid">
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.city.id_for_label }}">{{ form.city.label }} *</label>
+                    {{ form.city }}
+                    {% if form.city.errors %}<span class="sell-field__error">{{ form.city.errors.0 }}</span>{% endif %}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.region.id_for_label }}">{{ form.region.label }}</label>
+                    {{ form.region }}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.plate.id_for_label }}">{{ form.plate.label }} *</label>
+                    {{ form.plate }}
+                    {% if form.plate.errors %}<span class="sell-field__error">{{ form.plate.errors.0 }}</span>{% endif %}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.vin.id_for_label }}">{{ form.vin.label }}</label>
+                    {{ form.vin }}
+                </div>
+            </div>
+        </section>
+
+        <section class="sell-section">
+            <h2 class="sell-section__title">Опис та фото</h2>
+            <div class="sell-grid sell-grid--full">
+                <div class="sell-field sell-field--full">
+                    <label class="sell-field__label" for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+                    {{ form.description }}
+                </div>
+                <div class="sell-field sell-field--full">
+                    <label class="sell-field__label" for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
+                    {{ form.image }}
+                    <span class="sell-field__hint">Якщо не вкажете — буде використано стандартне зображення</span>
+                </div>
+                <div class="sell-field sell-field--full">
+                    <label class="sell-field__label" for="{{ form.extra_images.id_for_label }}">{{ form.extra_images.label }}</label>
+                    {{ form.extra_images }}
+                    {% if form.extra_images.errors %}<span class="sell-field__error">{{ form.extra_images.errors.0 }}</span>{% endif %}
+                    <span class="sell-field__hint">Додайте кілька посилань на фото з нового рядка або через кому</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="sell-section">
+            <h2 class="sell-section__title">Контакти продавця</h2>
+            <div class="sell-grid">
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.seller_name.id_for_label }}">{{ form.seller_name.label }}</label>
+                    {{ form.seller_name }}
+                </div>
+                <div class="sell-field">
+                    <label class="sell-field__label" for="{{ form.seller_phone.id_for_label }}">{{ form.seller_phone.label }}</label>
+                    {{ form.seller_phone }}
+                </div>
+            </div>
+        </section>
+
+        <div class="sell-actions">
+            <a href="{% if cancel_url %}{% url cancel_url %}{% else %}{% url 'index' %}{% endif %}" class="sell-btn sell-btn--secondary">Скасувати</a>
+            <button type="submit" class="sell-btn sell-btn--primary">{{ submit_label|default:'Опублікувати оголошення' }}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

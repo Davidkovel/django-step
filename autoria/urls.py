@@ -1,0 +1,43 @@
+from django.urls import path
+
+from .views import (
+    admin_car_delete,
+    admin_car_edit,
+    admin_cars,
+    admin_user_delete,
+    car_detail,
+    car_services,
+    favorites,
+    garage,
+    index,
+    login,
+    logout,
+    new_cars,
+    register,
+    search,
+    sell_car,
+    support,
+    toggle_favorite,
+    used_cars,
+)
+
+urlpatterns = [
+    path('', index, name='index'),
+    path('admin-cars/', admin_cars, name='admin_cars'),
+    path('admin-cars/<int:car_id>/edit/', admin_car_edit, name='admin_car_edit'),
+    path('admin-cars/<int:car_id>/delete/', admin_car_delete, name='admin_car_delete'),
+    path('admin-users/<int:user_id>/delete/', admin_user_delete, name='admin_user_delete'),
+    path('used-cars/', used_cars, name='used_cars'),
+    path('new-cars/', new_cars, name='new_cars'),
+    path('car-services/', car_services, name='car_services'),
+    path('garage/', garage, name='garage'),
+    path('support/', support, name='support'),
+    path('search/', search, name='search'),
+    path('favorites/', favorites, name='favorites'),
+    path('favorites/<int:car_id>/toggle/', toggle_favorite, name='toggle_favorite'),
+    path('car/<int:car_id>/', car_detail, name='car_detail'),
+    path('sell/', sell_car, name='sell_car'),
+    path('login/', login, name='login'),
+    path('register/', register, name='register'),
+    path('logout/', logout, name='logout'),
+]

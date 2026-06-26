@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Все для авто - AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/pages/auto_pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auto-page">
+    <section class="auto-hero">
+        <div class="container auto-hero__inner">
+            <div class="auto-hero__content">
+                <span class="auto-kicker">Сервіси для власників</span>
+                <h1 class="auto-hero__title">Все для авто в одному місці</h1>
+                <p class="auto-hero__text">Перевірка історії, страхування, фінансування, допомога з продажем та інші сервіси, які очікує користувач AUTO.RIA.</p>
+                <div class="auto-hero__actions">
+                    <a href="{% url 'garage' %}" class="auto-btn auto-btn--primary">Додати авто в гараж</a>
+                    <a href="{% url 'support' %}" class="auto-btn auto-btn--secondary">Отримати допомогу</a>
+                </div>
+            </div>
+            <aside class="auto-panel">
+                <h2 class="auto-panel__title">Швидкий старт</h2>
+                <div class="auto-stats">
+                    <div class="auto-stat"><span>VIN</span><strong>перевірка</strong></div>
+                    <div class="auto-stat"><span>Документи</span><strong>підказки</strong></div>
+                    <div class="auto-stat"><span>Продаж</span><strong>підготовка</strong></div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="container auto-section">
+        <div class="auto-section__head">
+            <h2 class="auto-section__title">Сервіси</h2>
+            <span class="auto-section__hint">Окремі блоки для майбутнього функціоналу</span>
+        </div>
+        <div class="service-grid">
+            <article class="service-card">
+                <span class="service-card__icon">VIN</span>
+                <h3 class="service-card__title">Перевірка авто</h3>
+                <p class="service-card__text">Історія реєстрацій, пробіг, обмеження та базова інформація перед купівлею.</p>
+            </article>
+            <article class="service-card">
+                <span class="service-card__icon">$</span>
+                <h3 class="service-card__title">Кредит і лізинг</h3>
+                <p class="service-card__text">Орієнтовний платіж, вибір програми та підготовка заявки на фінансування.</p>
+            </article>
+            <article class="service-card">
+                <span class="service-card__icon">24</span>
+                <h3 class="service-card__title">Допомога 24/7</h3>
+                <p class="service-card__text">Підказки з оголошеннями, акаунтом, оплатами та безпечними угодами.</p>
+            </article>
+        </div>
+    </section>
+</div>
+{% endblock %}

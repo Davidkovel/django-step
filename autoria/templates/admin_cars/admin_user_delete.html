@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Видалити користувача — AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/admin_cars.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-cars-page admin-cars-page--narrow container">
+    <div class="admin-delete">
+        <h1 class="admin-delete__title">Видалити користувача?</h1>
+        <p class="admin-delete__text">
+            Акаунт {{ user_to_delete.username }}{% if user_to_delete.email %} з поштою {{ user_to_delete.email }}{% endif %} буде повністю прибрано з сайту.
+        </p>
+        <form method="post" class="admin-delete__actions">
+            {% csrf_token %}
+            <a href="{% url 'admin_cars' %}" class="admin-cars-btn">Скасувати</a>
+            <button type="submit" class="admin-cars-btn admin-cars-btn--danger">Так, видалити</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

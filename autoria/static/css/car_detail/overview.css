@@ -1,0 +1,235 @@
+/* ================================================
+   OVERVIEW
+   ================================================ */
+.detail-info__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 6px;
+}
+
+.detail-info__gen {
+    font-size: 15px;
+    color: #2c2c2c;
+    margin-bottom: 12px;
+}
+
+.detail-info__old-price {
+    font-size: 15px;
+    color: #888;
+    text-decoration: line-through;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.detail-info__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.detail-info__price {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a8a1a;
+}
+
+.detail-info__price-dot {
+    color: #2c2c2c;
+}
+
+.detail-info__price-uah {
+    font-size: 16px;
+    color: #2c2c2c;
+}
+
+.detail-info__avg-price {
+    font-size: 15px;
+    color: #2c2c2c;
+    text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.detail-info__avg-price:hover {
+    text-decoration: none;
+}
+
+.detail-info__credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    color: #2c2c2c;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.detail-info__credit:hover {
+    text-decoration: none;
+}
+
+.detail-specs {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 12px;
+}
+
+.detail-spec {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    color: #2c2c2c;
+}
+
+.detail-spec__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #888;
+}
+
+.detail-location {
+    font-size: 15px;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+}
+
+/* --- Бейджі --- */
+.detail-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.detail-plate {
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #2c2c2c;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 30px;
+}
+
+.detail-plate__blue {
+    background: #005bbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 4px;
+    gap: 1px;
+}
+
+.detail-plate__flag {
+    width: 12px;
+    height: 8px;
+    border-radius: 1px;
+    background: linear-gradient(to bottom, #005bbb 50%, #ffd500 50%);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.detail-plate__ua {
+    font-size: 7px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.detail-plate__number {
+    background: #fff;
+    color: #2c2c2c;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+.detail-vin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #2c2c2c;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.detail-copy {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.detail-copy:hover {
+    background: #f0f0f0;
+}
+
+.detail-tag {
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #2c2c2c;
+}
+
+/* --- Перевірка --- */
+.detail-verification {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.detail-verification__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.detail-verification__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.detail-verification__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #2c2c2c;
+}
+
+.detail-verification__color {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.detail-verification__note {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+}

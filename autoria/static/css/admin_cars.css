@@ -1,0 +1,262 @@
+.admin-cars-page {
+    padding-bottom: 48px;
+}
+
+.admin-cars-page--narrow {
+    max-width: 680px;
+}
+
+.admin-cars-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.admin-cars-header__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.admin-cars-header__subtitle {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.admin-cars-list {
+    display: grid;
+    gap: 16px;
+}
+
+.admin-panel-section {
+    margin-bottom: 36px;
+}
+
+.admin-panel-section__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.admin-car {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+}
+
+.admin-car__media {
+    display: block;
+    width: 180px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f4f4f4;
+}
+
+.admin-car__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-car__body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+}
+
+.admin-car__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.admin-car__meta {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.admin-car__price {
+    display: grid;
+    gap: 4px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.admin-car__price strong {
+    font-size: 20px;
+    color: #178a30;
+}
+
+.admin-car__price span {
+    color: #777;
+    font-size: 13px;
+}
+
+.admin-car__actions,
+.admin-user__actions,
+.admin-delete__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-car__actions,
+.admin-user__actions {
+    flex-direction: column;
+}
+
+.admin-cars-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 18px;
+    border: 1px solid #d9d9d9;
+    border-radius: 999px;
+    background: #fff;
+    color: #2c2c2c;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.admin-cars-btn:hover {
+    background: #f5f5f5;
+}
+
+.admin-cars-btn--primary {
+    border-color: #2c2c2c;
+    background: #2c2c2c;
+    color: #fff;
+}
+
+.admin-cars-btn--primary:hover {
+    background: #444;
+    border-color: #444;
+}
+
+.admin-cars-btn--danger {
+    border-color: #d44;
+    color: #c62828;
+}
+
+.admin-cars-btn--danger:hover {
+    background: #fff2f2;
+}
+
+.admin-cars-btn--disabled,
+.admin-cars-btn--disabled:hover {
+    background: #f4f4f4;
+    border-color: #e0e0e0;
+    color: #777;
+    cursor: default;
+}
+
+.admin-users-list {
+    display: grid;
+    gap: 12px;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+}
+
+.admin-user__name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.admin-user__meta {
+    color: #666;
+    font-size: 14px;
+}
+
+.admin-cars-empty,
+.admin-delete {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.admin-cars-empty h2,
+.admin-delete__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.admin-cars-empty p,
+.admin-delete__text {
+    color: #666;
+    line-height: 1.5;
+}
+
+.admin-delete__actions {
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+    .admin-car {
+        grid-template-columns: 140px 1fr;
+    }
+
+    .admin-car__media {
+        width: 140px;
+    }
+
+    .admin-car__actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 640px) {
+    .admin-cars-header,
+    .admin-car__body,
+    .admin-user,
+    .admin-delete__actions {
+        flex-direction: column;
+    }
+
+    .admin-car {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-car__media {
+        width: 100%;
+    }
+
+    .admin-car__price {
+        text-align: left;
+    }
+
+    .admin-car__actions,
+    .admin-user__actions,
+    .admin-cars-btn {
+        width: 100%;
+    }
+}

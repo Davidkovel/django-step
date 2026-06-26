@@ -1,0 +1,106 @@
+{% load static %}
+
+<!-- ========== Продовжити пошук ========== -->
+<section class="section-continue container">
+    <div class="section-header">
+        <h2 class="section-title">Продовжити пошук</h2>
+        <div class="carousel-arrows">
+            <button class="carousel-arrow carousel-arrow--left disabled" onclick="slide('continue', -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="carousel-arrow carousel-arrow--right" onclick="slide('continue', 1)" aria-label="Вперед"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+        </div>
+    </div>
+    <div class="carousel" data-carousel="continue" data-visible="3">
+        <div class="carousel__track">
+            {% for car in cars %}
+            <a href="{% url 'car_detail' car.id %}" class="search-card">
+                <div class="search-card__icon"><img src="{% static 'images/index/filter_logos/default_logo.png' %}" alt="" class="dropdown__brand-logo"></div>
+                <div class="search-card__info">
+                    <span class="search-card__title">{{ car.brand }} {{ car.model }} {{ car.year }} - {{ car.year }} рр.</span>
+                    <span class="search-card__sub">Вживані, Вся Україна, {{ car.engine }}, Авто в Україні</span>
+                </div>
+            </a>
+            {% endfor %}
+            {% for car in cars %}
+            <a href="{% url 'car_detail' car.id %}" class="search-card">
+                <div class="search-card__icon"><img src="{% static 'images/index/filter_logos/default_logo.png' %}" alt="" class="dropdown__brand-logo"></div>
+                <div class="search-card__info">
+                    <span class="search-card__title">{{ car.brand }} {{ car.model }} {{ car.year }} - {{ car.year }} рр.</span>
+                    <span class="search-card__sub">Вживані, Вся Україна, {{ car.engine }}, Авто в ...</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ========== Відеоповідомлення ========== -->
+<section class="section-video container">
+    <div class="section-header">
+        <h2 class="section-title">Відеоповідомлення</h2>
+        <div class="carousel-arrows">
+            <button class="carousel-arrow carousel-arrow--left disabled" onclick="slide('video', -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="carousel-arrow carousel-arrow--right" onclick="slide('video', 1)" aria-label="Вперед"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+        </div>
+    </div>
+    <div class="carousel" data-carousel="video" data-visible="9">
+        <div class="carousel__track">
+    {% for car in cars %}
+    <a href="{% url 'car_detail' car.id %}" class="video-card">
+        <div class="video-card__circle"><img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}"></div>
+        <span class="video-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</span>
+    </a>
+    {% endfor %}
+    {% for car in cars %}
+    <a href="{% url 'car_detail' car.id %}" class="video-card">
+        <div class="video-card__circle"><img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}"></div>
+        <span class="video-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</span>
+    </a>
+    {% endfor %}
+    {% for car in cars %}
+    <a href="{% url 'car_detail' car.id %}" class="video-card">
+        <div class="video-card__circle"><img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}"></div>
+        <span class="video-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</span>
+    </a>
+    {% endfor %}
+    {% for car in cars %}
+    <a href="{% url 'car_detail' car.id %}" class="video-card">
+        <div class="video-card__circle"><img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}"></div>
+        <span class="video-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</span>
+    </a>
+    {% endfor %}
+    {% for car in cars %}
+    <a href="{% url 'car_detail' car.id %}" class="video-card">
+        <div class="video-card__circle"><img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}"></div>
+        <span class="video-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</span>
+    </a>
+    {% endfor %}
+    {% for car in cars %}
+    <a href="{% url 'car_detail' car.id %}" class="video-card">
+        <div class="video-card__circle"><img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}"></div>
+        <span class="video-card__name">{{ car.brand }} {{ car.model }} {{ car.year }}</span>
+    </a>
+    {% endfor %}
+</div>
+    </div>
+</section>
+
+<!-- ========== Сьогодні на AUTO.RIA ========== -->
+<section class="section-today container">
+    <div class="section-header">
+        <h2 class="section-title">Сьогодні на AUTO.RIA</h2>
+        <div class="carousel-arrows">
+            <button class="carousel-arrow carousel-arrow--left disabled" onclick="slide('today', -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="carousel-arrow carousel-arrow--right" onclick="slide('today', 1)" aria-label="Вперед"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+        </div>
+    </div>
+    <div class="carousel" data-carousel="today" data-visible="3">
+        <div class="carousel__track">
+            <a href="#" class="today-card"><div class="today-card__img"><img src="{% static 'images/index/today_1.png' %}"></div><div class="today-card__info"><span class="today-card__title">Оновлений каталог продавців</span><span class="today-card__desc">Знаходьте продавців за вашими потребами</span></div></a>
+            <a href="#" class="today-card"><div class="today-card__img"><img src="{% static 'images/index/today_2.png' %}"></div><div class="today-card__info"><span class="today-card__title">Мерч для драйву, авто – для ЗСУ</span><span class="today-card__desc">Ми запускаємо AUTO.RIA мерч-шоп</span></div></a>
+            <a href="#" class="today-card"><div class="today-card__img"><img src="{% static 'images/index/today_3.png' %}"></div><div class="today-card__info"><span class="today-card__title">Виїзна перевірка</span><span class="today-card__desc">Ми виїдемо і перевіримо авто для тебе</span></div></a>
+            <a href="#" class="today-card"><div class="today-card__img"><img src="{% static 'images/index/today_4.png' %}"></div><div class="today-card__info"><span class="today-card__title">Перевірка по VIN-коду</span><span class="today-card__desc">Дізнайтесь історію авто за VIN</span></div></a>
+            <a href="#" class="today-card"><div class="today-card__img"><img src="{% static 'images/index/today_5.png' %}"></div><div class="today-card__info"><span class="today-card__title">Автоновини</span><span class="today-card__desc">Останні новини зі світу авто</span></div></a>
+            <a href="#" class="today-card"><div class="today-card__img"><img src="{% static 'images/index/today_6.png' %}"></div><div class="today-card__info"><span class="today-card__title">Фінансування авто</span><span class="today-card__desc">Кредит та лізинг на AUTO.RIA</span></div></a>
+        </div>
+    </div>
+</section>

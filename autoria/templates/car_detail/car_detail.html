@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ car.brand }} {{ car.model }} {{ car.year }} — AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/car_detail/car_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/overview.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/description.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/vin_check.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/history.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/learn_more.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/extras.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/bottom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/reviews.css' %}">
+    <link rel="stylesheet" href="{% static 'css/car_detail/model_parts.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include 'car_detail/_breadcrumbs.html' %}
+    <div class="detail-layout container">
+        <div class="detail-main">
+            {% include 'car_detail/_gallery.html' %}
+            {% include 'car_detail/_overview.html' %}
+            {% include 'car_detail/_description.html' %}
+            {% include 'car_detail/_vin_check.html' %}
+            {% include 'car_detail/_history.html' %}
+            {% include 'car_detail/_learn_more.html' %}
+            {% include 'car_detail/_extras.html' %}
+        </div>
+        <aside class="detail-sidebar">
+            {% include 'car_detail/_sidebar.html' %}
+        </aside>
+    </div>
+    {% include 'car_detail/_bottom.html' %}
+    {% include 'car_detail/_reviews.html' %}
+    {% include 'car_detail/_news_detail.html' %}
+    {% include 'car_detail/_model_parts.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'components/_footer_detail.html' %}
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/car_detail/gallery.js' %}"></script>
+    <script src="{% static 'js/car_detail/sidebar.js' %}"></script>
+    <script src="{% static 'js/car_detail/description.js' %}"></script>
+    <script src="{% static 'js/car_detail/history.js' %}"></script>
+    <script src="{% static 'js/car_detail/bottom.js' %}"></script>
+    <script src="{% static 'js/car_detail/reviews.js' %}"></script>
+    <script src="{% static 'js/car_detail/model_parts.js' %}"></script>
+{% endblock %}

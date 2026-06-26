@@ -1,0 +1,28 @@
+<div class="gallery">
+    {{ car.gallery_images|json_script:"gallery-images-data" }}
+    <div class="gallery__main">
+        <button class="gallery__arrow gallery__arrow--left" onclick="galleryPrev()" aria-label="Назад">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <img src="{{ car.gallery_images.0 }}" alt="{{ car.brand }} {{ car.model }}" class="gallery__image" id="galleryImage">
+        <button class="gallery__arrow gallery__arrow--right" onclick="galleryNext()" aria-label="Вперед">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+        <span class="gallery__counter" id="galleryCounter">1 з {{ car.gallery_images|length }}</span>
+    </div>
+    <div class="gallery__thumbs">
+        <div class="gallery__thumbs-viewport">
+            <div class="gallery__thumbs-track" id="galleryThumbs">
+                {% for image in car.gallery_images %}
+                    <div class="gallery__thumb{% if forloop.first %} gallery__thumb--active{% endif %}" onclick="galleryGo({{ forloop.counter0 }})"><img src="{{ image }}" alt=""></div>
+                {% endfor %}
+            </div>
+            <button class="gallery__thumb-arrow gallery__thumb-arrow--left" onclick="galleryPrev()" aria-label="Назад">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="gallery__thumb-arrow gallery__thumb-arrow--right" onclick="galleryNext()" aria-label="Вперед">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 6 15 12 9 18"/></svg>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,394 @@
+/* ================================================
+   AUTO.RIA РЕКОМЕНДУЄ
+   ================================================ */
+.section-recs {
+    padding: 32px 0;
+}
+
+.section-recs .section-title {
+    margin-bottom: 20px;
+}
+
+.recs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* --- Картка --- */
+.car-card {
+    border-radius: 12px;
+}
+
+.car-card__visual {
+    transition: box-shadow 0.2s;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07);
+}
+
+.car-card__visual:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.car-card__visual:hover .car-card__name,
+.car-card__visual:hover .car-card__price-usd {
+    text-decoration: underline;
+}
+
+/* Приховані після 9 */
+.car-card:nth-child(n+10) {
+    display: none;
+}
+
+.recs-grid.show-all .car-card:nth-child(n+10) {
+    display: block;
+}
+
+/* --- Зображення --- */
+.car-card__image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.car-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Кнопка закрити --- */
+.car-card__close {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.car-card__close:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* --- Кнопка лайк --- */
+.car-card__fav {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #2c2c2c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s;
+}
+
+.car-card__fav:hover {
+    background-color: #f0f0f0;
+}
+
+.car-card__fav.is-liked svg {
+    fill: #e3000f;
+    stroke: #e3000f;
+}
+
+/* --- Бейджі --- */
+.car-card__badges {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/*.car-card__vin {*/
+/*    background: rgba(0,0,0,0.6);*/
+/*    color: #fff;*/
+/*    font-size: 12px;*/
+/*    font-weight: 600;*/
+/*    padding: 5px 10px;*/
+/*    border-radius: 4px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 4px;*/
+/*}*/
+
+.car-card__plate {
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #2c2c2c;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 28px;
+}
+
+.car-card__plate-blue {
+    background: #005bbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 4px;
+    gap: 1px;
+}
+
+.car-card__plate-flag {
+    width: 12px;
+    height: 8px;
+    border-radius: 1px;
+    background: linear-gradient(to bottom, #005bbb 50%, #ffd500 50%);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.car-card__plate-ua {
+    font-size: 7px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.car-card__plate-number {
+    background: #fff;
+    color: #2c2c2c;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+/* --- Тіло картки --- */
+.car-card__body {
+    display: block;
+    padding: 18px 16px 14px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.car-card__name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 10px;
+}
+
+/* --- Ціна --- */
+.car-card__price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.car-card__price-usd {
+    font-size: 20px;
+    font-weight: 600;
+    color: #07b75f;
+}
+
+.car-card__price-dot {
+    color: #2c2c2c;
+    font-size: 15px;
+}
+
+.car-card__price-uah {
+    font-size: 16px;
+    color: #2c2c2c;
+}
+
+/* --- Характеристики --- */
+.car-card__specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    margin-bottom: 14px;
+}
+
+.car-card__spec {
+    font-size: 15px;
+    color: #2c2c2c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.spec-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #2c2c2c;
+}
+
+.car-card__posted {
+    font-size: 13px;
+    color: #79797c;
+}
+
+/* --- Бейджі (VIN більший) --- */
+.car-card__vin {
+    background: rgb(31 32 36);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/*.car-card__plate {*/
+/*    background: #fff;*/
+/*    color: #2c2c2c;*/
+/*    font-size: 13px;*/
+/*    font-weight: 600;*/
+/*    padding: 6px 12px;*/
+/*    border-radius: 6px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 5px;*/
+/*}*/
+
+/* --- Блок "Приховано" --- */
+.car-card__hidden {
+    display: none;
+}
+
+.car-card__hidden-inner {
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+}
+
+.car-card__hidden-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.car-card__hidden-header span {
+    font-size: 16px;
+    /*font-weight: 600;*/
+    color: #2c2c2c;
+}
+
+.car-card__hidden-text {
+    font-size: 16px;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    padding-left: 30px;
+}
+
+.car-card__hidden-btn {
+    margin-left: 30px;
+    padding: 12px 20px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.car-card__hidden-btn:hover {
+    background: #f0f0f0;
+}
+
+/* --- Тост --- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #2c2c2c;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    font-size: 15px;
+    font-weight: 600;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* --- "Показати ще" --- */
+.recs-more-wrap {
+    text-align: center;
+    padding: 24px 0 0 0;
+}
+
+.recs-more-btn {
+    padding: 14px 150px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.recs-more-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.recs-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px 24px;
+    border: 1px dashed #d9d9d9;
+    border-radius: 12px;
+    color: #666;
+    font-size: 16px;
+}
+
+.recs-empty a {
+    color: #2c2c2c;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.favorite-form {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    z-index: 5;
+}
+
+.favorite-form .car-card__fav {
+    position: static;
+}
+
+.favorite-form .car-card__fav.is-liked {
+    color: #e3000f;
+}

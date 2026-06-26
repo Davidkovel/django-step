@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AutoRia{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sell.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    {% block header %}
+        {% include 'components/_header_default.html' %}
+    {% endblock %}
+
+    <main class="main">
+        {% if messages %}
+            <div class="container">
+                {% for message in messages %}
+                    <div class="sell-message sell-message--{{ message.tags }}" style="margin-bottom: 16px;">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block footer %}
+        {% include 'components/_footer_default.html' %}
+    {% endblock %}
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>

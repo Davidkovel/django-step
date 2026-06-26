@@ -1,0 +1,48 @@
+{% load static %}
+<header class="header">
+    <div class="container header__inner">
+        <a href="{% url 'index' %}" class="logo">
+            <img src="{% static 'images/base/logo_header.png' %}" alt="AutoRia" class="logo__img">
+        </a>
+        <nav class="nav">
+            <a href="{% url 'used_cars' %}">Вживані авто</a>
+            <a href="{% url 'new_cars' %}">Нові авто</a>
+            <a href="{% url 'car_services' %}" class="nav__dropdown">Все для авто
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </a>
+            <a href="{% url 'garage' %}">GARAGE AUTO.RIA</a>
+            <a href="{% url 'support' %}">Підтримка 24/7</a>
+        </nav>
+        <div class="header__actions">
+            <a href="{% url 'search' %}" class="icon-btn icon-btn--badge" aria-label="Пошук">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span class="icon-badge">NEW</span>
+            </a>
+            <a href="{% url 'favorites' %}" class="icon-btn" aria-label="Обране">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </a>
+            {% if request.user.is_authenticated %}
+                {% if request.user.username == 'admin' and request.user.is_superuser %}
+                    <a href="{% url 'admin_cars' %}" class="header-logout">Адмінка</a>
+                {% endif %}
+                <a href="{% url 'garage' %}" class="header-user" title="Кабінет">{{ request.user.username }}</a>
+                <a href="{% url 'logout' %}" class="header-logout">Вийти</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="icon-btn icon-btn--dot" aria-label="Кабінет">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span class="icon-dot"></span>
+                </a>
+            {% endif %}
+            <a href="{% url 'sell_car' %}" class="btn-sell">+ Продати авто</a>
+        </div>
+    </div>
+</header>
+<div class="banner">
+    <div class="container banner__inner">
+        <span class="banner__flag"></span>
+        <span class="banner__text">Донат до донату - автівка на фронт! Подвоїмо кожну гривню!</span>
+    </div>
+</div>

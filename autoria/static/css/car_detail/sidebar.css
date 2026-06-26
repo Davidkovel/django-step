@@ -1,0 +1,289 @@
+/* ================================================
+   SIDEBAR
+   ================================================ */
+.detail-sidebar__inner {
+    position: sticky;
+    top: 16px;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.sidebar-header__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 4px;
+}
+
+.sidebar-header__gen {
+    font-size: 14px;
+    color: #2c2c2c;
+    margin-bottom: 8px;
+}
+
+.sidebar-header__price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.sidebar-header__price-usd {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a8a1a;
+}
+
+.sidebar-header__price-dot {
+    color: #2c2c2c;
+    font-size: 14px;
+}
+
+.sidebar-header__price-uah {
+    font-size: 15px;
+    color: #2c2c2c;
+}
+
+.sidebar-fav {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    color: #2c2c2c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+.sidebar-fav:hover {
+    background: #f5f5f5;
+}
+
+.sidebar-fav.is-liked svg {
+    fill: #e3000f;
+    stroke: #e3000f;
+}
+
+/* --- Розширена історія --- */
+.sidebar-history {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar-history__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c2c2c;
+    display: block;
+}
+
+.sidebar-history__sub {
+    font-size: 13px;
+    color: #888;
+    display: block;
+    margin-top: 2px;
+}
+
+.sidebar-history:hover .sidebar-history__title {
+    text-decoration: underline;
+}
+
+.sidebar-history__arrow {
+    color: #888;
+    transition: color 0.2s;
+}
+
+.sidebar-history:hover .sidebar-history__arrow {
+    color: #2c2c2c;
+}
+
+/* --- Продавець --- */
+.sidebar-seller {
+    background: #e8f4f8;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.sidebar-seller__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.sidebar-seller__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sidebar-seller__label {
+    font-size: 13px;
+    color: #888;
+    display: block;
+}
+
+.sidebar-seller__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c2c2c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sidebar-seller__rate {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    color: #2c2c2c;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.sidebar-seller__rate span {
+    text-decoration: underline;
+}
+
+.sidebar-seller__rate:hover span {
+    text-decoration: none;
+}
+
+.sidebar-seller__years {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+}
+
+.sidebar-seller__phone {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: #30b232;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-seller__phone:hover {
+    background: #28a02a;
+}
+
+.sidebar-seller__phone--disabled,
+.sidebar-seller__phone--disabled:hover {
+    background: #b8c5ca;
+    cursor: default;
+}
+
+.seller-message {
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.seller-message__label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+.seller-message__input {
+    width: 100%;
+    min-height: 96px;
+    padding: 12px 14px;
+    border: 1px solid #cbdde4;
+    border-radius: 10px;
+    background: #fff;
+    color: #2c2c2c;
+    font: inherit;
+    resize: vertical;
+    outline: none;
+}
+
+.seller-message__input:focus {
+    border-color: #30b232;
+    box-shadow: 0 0 0 3px rgba(48, 178, 50, 0.16);
+}
+
+.seller-message__status {
+    min-height: 18px;
+    font-size: 13px;
+    color: #1a8a1a;
+    text-align: center;
+}
+
+.seller-message__status.is-error {
+    color: #c62828;
+}
+
+.sidebar-seller__chat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: #fff;
+    color: #2c2c2c;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sidebar-seller__chat:hover {
+    background: #f5f5f5;
+}
+
+.sidebar-seller__online {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #1a8a1a;
+    margin-top: 12px;
+}
+
+.sidebar-seller__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1a8a1a;
+    flex-shrink: 0;
+}
+
+.sidebar-fav-form {
+    flex-shrink: 0;
+}

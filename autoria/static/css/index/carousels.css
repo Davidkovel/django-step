@@ -1,0 +1,204 @@
+/* --- Стрілки каруселі --- */
+.carousel-arrows {
+    display: flex;
+    gap: 14px;
+}
+
+.carousel-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #2c2c2c;
+    background: transparent;
+    color: #2c2c2c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.dropdown__brand-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.carousel-arrow:hover {
+    background-color: #f0f0f0;
+}
+
+.carousel-arrow.disabled {
+    border-color: #ccc;
+    color: #ccc;
+    pointer-events: none;
+}
+
+/* --- Карусель --- */
+.carousel {
+    overflow: hidden;
+    padding: 8px 8px;
+    margin: -8px -8px;
+}
+
+.carousel__track {
+    display: flex;
+    gap: 16px;
+    transition: transform 0.4s ease;
+}
+
+
+/* ================================================
+   ПРОДОВЖИТИ ПОШУК
+   ================================================ */
+.search-card {
+    flex: 0 0 calc(33.333% - 11px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+}
+
+.search-card:hover {
+    /*box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);*/
+}
+
+.search-card:hover .search-card__title,
+.search-card:hover .search-card__sub {
+    text-decoration: underline;
+}
+
+.search-card__icon {
+    flex-shrink: 0;
+}
+
+.search-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.search-card__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c2c2c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-card__sub {
+    font-size: 13px;
+    color: #2c2c2c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ================================================
+   ВІДЕОПОВІДОМЛЕННЯ
+   ================================================ */
+.video-card {
+    flex: 0 0 calc(11.111% - 14px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.video-card__circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #e0d0f0;
+    transition: transform 0.2s;
+}
+
+.video-card:hover .video-card__circle {
+    transform: scale(1.06);
+}
+
+.video-card__circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-card__name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #131313;
+    text-align: center;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ================================================
+   СЬОГОДНІ НА AUTO.RIA
+   ================================================ */
+.today-card {
+    flex: 0 0 calc(33.333% - 11px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+}
+
+.today-card:hover {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+}
+
+.today-card:hover .today-card__title {
+    text-decoration: underline;
+}
+
+.today-card__img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.today-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.today-card__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+.today-card__desc {
+    font-size: 15px;
+    color: #222222;
+}

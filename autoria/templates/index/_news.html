@@ -1,0 +1,106 @@
+{% load static %}
+
+<!-- ========== Новини про авто ========== -->
+<section class="section-news container">
+    <h2 class="section-title">Новини про авто</h2>
+
+    <div class="news-tabs">
+        <button class="news-tab news-tab--active">Автомобільні новини</button>
+        <button class="news-tab">Тест-драйви</button>
+        <button class="news-tab">Журнал</button>
+        <button class="news-tab">Як підготувати авто до зими</button>
+        <button class="news-tab">Акції</button>
+        <button class="news-tab">Огляди</button>
+        <button class="news-tab">Премія «Авто Лідер» 2026</button>
+    </div>
+
+    <div class="news-content">
+        <a href="#" class="news-main">
+            <img src="{% static 'images/index/news_1.png' %}" alt="Тест-драйв" class="news-main__img">
+        </a>
+
+        <div class="news-side">
+            <a href="#" class="news-item">
+                <img src="{% static 'images/index/news_2.png' %}" alt="" class="news-item__img">
+                <div class="news-item__info">
+                    <h4 class="news-item__title">Ford Fiesta повернеться наступного року, але це сподобається не всім</h4>
+                    <span class="news-item__date">2 червня 2026</span>
+                </div>
+            </a>
+            <a href="#" class="news-item">
+                <img src="{% static 'images/index/news_3.png' %}" alt="" class="news-item__img">
+                <div class="news-item__info">
+                    <h4 class="news-item__title">Автомобіль тижня: Porsche Cayenne Electric</h4>
+                    <span class="news-item__date">1 червня 2026</span>
+                </div>
+            </a>
+            <a href="#" class="news-item">
+                <img src="{% static 'images/index/news_4.png' %}" alt="" class="news-item__img">
+                <div class="news-item__info">
+                    <h4 class="news-item__title">Це буде хлопчик! Mitsubishi остаточно підтвердила повернення Pajero</h4>
+                    <span class="news-item__date">29 травня 2026</span>
+                </div>
+            </a>
+        </div>
+
+        <a href="#" class="news-read-all">Читати все</a>
+    </div>
+</section>
+
+<!-- ========== AUTO.RIA рекомендує (посилання) ========== -->
+<section class="section-ria-links container">
+    <h2 class="section-title">AUTO.RIA рекомендує</h2>
+
+    <div class="ria-tabs">
+        <button class="transport-tab transport-tab--active" onclick="switchRia(this, 'placement')">Можливості розміщення</button>
+        <button class="transport-tab" onclick="switchRia(this, 'search')">Пошук автомобілів</button>
+        <button class="transport-tab" onclick="switchRia(this, 'companies')">Автомобільні компанії</button>
+        <button class="transport-tab" onclick="switchRia(this, 'goods')">Товари для авто</button>
+        <button class="transport-tab" onclick="switchRia(this, 'before')">Перед купівлею авто</button>
+        <button class="transport-tab" onclick="switchRia(this, 'services')">Автомобільні послуги</button>
+    </div>
+
+    <div class="ria-panel ria-panel--active" data-ria="placement">
+        <div class="transport-links transport-links--2col">
+            <a href="#">Просування авто в пошуку ></a>
+            <a href="#">Вигоди на публікації до -45% ></a>
+            <a href="#">Вигоди на ТОП до -45% ></a>
+            <a href="#">Просування нового авто в пошуку ></a>
+        </div>
+    </div>
+    <div class="ria-panel" data-ria="search">
+        <div class="transport-links">
+            <a href="#">Пошук перевірених авто ></a>
+            <a href="#">Пошук нових авто ></a>
+            <a href="#">Пошук з-за кордону ></a>
+        </div>
+    </div>
+    <div class="ria-panel" data-ria="companies">
+        <div class="transport-links">
+            <a href="#">Автосалони всієї України ></a>
+            <a href="#">Автодилери вживаних авто ></a>
+            <a href="#">Авто під замовлення з-за кордону ></a>
+        </div>
+    </div>
+    <div class="ria-panel" data-ria="goods">
+        <div class="transport-links">
+            <a href="#">Нові і б/у запчастини ></a>
+            <a href="#">Шини, диски та інші автотовари ></a>
+            <a href="#">Гаражі по Всій Україні ></a>
+        </div>
+    </div>
+    <div class="ria-panel" data-ria="before">
+        <div class="transport-links">
+            <a href="#">Відгуки власників авто ></a>
+            <a href="#">Перевірені авто на AUTO.RIA ></a>
+            <a href="#">Поради для успішної покупки авто ></a>
+        </div>
+    </div>
+    <div class="ria-panel" data-ria="services">
+        <div class="transport-links">
+            <a href="#">Митний калькулятор ></a>
+            <a href="#">Калькулятор середньої ціни ></a>
+            <a href="#">СТО ></a>
+        </div>
+    </div>
+</section>

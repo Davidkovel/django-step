@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Підтримка 24/7 - AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/pages/auto_pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auto-page">
+    <section class="auto-hero">
+        <div class="container auto-hero__inner">
+            <div class="auto-hero__content">
+                <span class="auto-kicker">Підтримка користувачів</span>
+                <h1 class="auto-hero__title">Допомога AUTO.RIA 24/7</h1>
+                <p class="auto-hero__text">Сторінка для швидкої навігації з питань купівлі, продажу, кабінету, оголошень і безпеки угод.</p>
+                <div class="auto-hero__actions">
+                    <a href="{% url 'login' %}" class="auto-btn auto-btn--primary">Перейти в кабінет</a>
+                    <a href="{% url 'car_services' %}" class="auto-btn auto-btn--secondary">Сервіси для авто</a>
+                </div>
+            </div>
+            <aside class="auto-panel">
+                <h2 class="auto-panel__title">Час відповіді</h2>
+                <div class="auto-stats">
+                    <div class="auto-stat"><span>Чат</span><strong>до 5 хв</strong></div>
+                    <div class="auto-stat"><span>Оголошення</span><strong>щодня</strong></div>
+                    <div class="auto-stat"><span>Безпека</span><strong>24/7</strong></div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="container auto-section">
+        <div class="auto-section__head">
+            <h2 class="auto-section__title">Популярні теми</h2>
+            <span class="auto-section__hint">Обирайте напрямок звернення</span>
+        </div>
+        <div class="support-grid">
+            <article class="support-card">
+                <span class="support-card__icon">?</span>
+                <h3 class="support-card__title">Покупцю</h3>
+                <p class="support-card__text">Пошук авто, перевірка продавця, VIN-дані та безпечна комунікація.</p>
+            </article>
+            <article class="support-card">
+                <span class="support-card__icon">+</span>
+                <h3 class="support-card__title">Продавцю</h3>
+                <p class="support-card__text">Створення оголошення, фото, ціна, редагування та просування.</p>
+            </article>
+            <article class="support-card">
+                <span class="support-card__icon">!</span>
+                <h3 class="support-card__title">Безпека</h3>
+                <p class="support-card__text">Поради щодо платежів, зустрічей, документів і підозрілих повідомлень.</p>
+            </article>
+        </div>
+    </section>
+</div>
+{% endblock %}

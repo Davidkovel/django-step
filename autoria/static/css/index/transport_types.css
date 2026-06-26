@@ -1,0 +1,195 @@
+/* ================================================
+   ТИПИ ТРАНСПОРТУ
+   ================================================ */
+.section-transport {
+    padding: 24px 0 0 0;
+}
+
+.section-transport .section-title {
+    margin-bottom: 16px;
+}
+
+/* --- Табки --- */
+.transport-tabs {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 50px;
+    /* padding: 4px; */
+    margin-bottom: 24px;
+    width: fit-content;
+}
+
+.transport-tab {
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.transport-tab:hover {
+    background: #e0e0e0;
+}
+
+.transport-tab--active {
+    background: #1f2024;
+    color: #fff;
+}
+
+.transport-tab--active:hover {
+    background: #2c2c2c;
+}
+
+/* --- Панелі --- */
+.transport-panel {
+    display: none;
+}
+
+.transport-panel--active {
+    display: block;
+}
+
+/* --- Сітка брендів --- */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s;
+}
+
+.brand-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.brand-card:hover .brand-card__name {
+    text-decoration: underline;
+}
+
+.brand-card__logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.brand-card__name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-align: center;
+}
+
+/* "Дивитись всі" */
+.brand-card--all {
+    justify-content: center;
+}
+
+.brand-card__arrow {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c2c2c;
+}
+
+/* --- Посилання (мото, вантажівки і тд) --- */
+.transport-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.transport-links a {
+    padding: 14px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-decoration: underline;
+    transition: text-decoration 0.2s;
+}
+
+.transport-links a:hover {
+    text-decoration: none;
+}
+
+
+/* ================================================
+   ОЦІНКА СТОРІНКИ
+   ================================================ */
+.section-rating {
+    padding: 32px 0 16px;
+}
+
+.rating-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rating-card__title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 4px;
+}
+
+.rating-card__desc {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #252525;
+}
+
+/* --- Зірки --- */
+.rating-stars {
+    display: flex;
+    gap: 14px;
+}
+
+.star-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.star-item span {
+    font-size: 13px;
+    color: #333333;
+}
+
+.star-svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: #2c2c2c;
+    stroke-width: 2;
+    transition: fill 0.15s;
+}
+
+.star-item.active .star-svg,
+.star-item.hovered .star-svg {
+    fill: #2c2c2c;
+    stroke: #2c2c2c;
+}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Реєстрація - AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="auth-page">
+    <div class="auth-card">
+        <div class="auth-card__head">
+            <span class="auth-card__kicker">Новий акаунт</span>
+            <h1 class="auth-card__title">Реєстрація</h1>
+            <p class="auth-card__text">Створіть профіль, щоб додавати авто, відкривати обране та керувати Garage AUTO.RIA.</p>
+        </div>
+
+        <form method="post" class="auth-form" novalidate>
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="auth-error">{{ form.non_field_errors.0 }}</div>
+            {% endif %}
+
+            <label class="auth-field" for="{{ form.username.id_for_label }}">
+                <span class="auth-field__label">{{ form.username.label }}</span>
+                {{ form.username }}
+                {% if form.username.errors %}<span class="auth-field__error">{{ form.username.errors.0 }}</span>{% endif %}
+            </label>
+
+            <label class="auth-field" for="{{ form.email.id_for_label }}">
+                <span class="auth-field__label">{{ form.email.label }}</span>
+                {{ form.email }}
+                {% if form.email.errors %}<span class="auth-field__error">{{ form.email.errors.0 }}</span>{% endif %}
+            </label>
+
+            <label class="auth-field" for="{{ form.password1.id_for_label }}">
+                <span class="auth-field__label">{{ form.password1.label }}</span>
+                {{ form.password1 }}
+                {% if form.password1.errors %}<span class="auth-field__error">{{ form.password1.errors.0 }}</span>{% endif %}
+            </label>
+
+            <label class="auth-field" for="{{ form.password2.id_for_label }}">
+                <span class="auth-field__label">{{ form.password2.label }}</span>
+                {{ form.password2 }}
+                {% if form.password2.errors %}<span class="auth-field__error">{{ form.password2.errors.0 }}</span>{% endif %}
+            </label>
+
+            <button type="submit" class="auth-btn auth-btn--primary">Створити акаунт</button>
+        </form>
+
+        <div class="auth-card__footer">
+            <span>Вже маєте акаунт?</span>
+            <a href="{% url 'login' %}">Увійти</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

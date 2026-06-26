@@ -1,0 +1,15 @@
+<nav class="detail-breadcrumbs container">
+    <a href="{% url 'index' %}" class="breadcrumb__link">AUTO.RIA.com</a>
+    <span class="breadcrumb__sep">&gt;</span>
+    <a href="#" class="breadcrumb__link">Легкові з пробігом</a>
+    <span class="breadcrumb__sep">&gt;</span>
+    <a href="#" class="breadcrumb__link">{{ car.region }}</a>
+    <span class="breadcrumb__sep">&gt;</span>
+    <a href="#" class="breadcrumb__link">{{ car.city }}</a>
+    <span class="breadcrumb__sep">&gt;</span>
+    <a href="#" class="breadcrumb__link">{{ car.brand }}</a>
+    <span class="breadcrumb__sep">&gt;</span>
+    <a href="#" class="breadcrumb__link">{{ car.model }}</a>
+    <span class="breadcrumb__sep">&gt;</span>
+    <span class="breadcrumb__current">{{ car.brand }} {{ car.model }} {{ car.city }}</span>
+</nav>

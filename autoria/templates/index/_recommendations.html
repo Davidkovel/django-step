@@ -1,0 +1,128 @@
+{% load static %}
+
+<section class="section-recs container">
+    <h2 class="section-title">AUTO.RIA рекомендує</h2>
+
+    <div class="recs-grid" id="recsGrid">
+
+        {% for car in cars %}
+        <div class="car-card" data-card>
+
+            <div class="car-card__visual">
+
+                <!-- IMAGE -->
+                <div class="car-card__image-wrap">
+
+                    <a href="{% url 'car_detail' car.id %}">
+                        <img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}" class="car-card__image">
+                    </a>
+
+                    <!-- buttons -->
+                    <button class="car-card__close" onclick="hideCard(this)">✕</button>
+                    <form method="post" action="{% url 'toggle_favorite' car.id %}" class="favorite-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <button type="submit" class="car-card__fav{% if car.id in favorite_car_ids %} is-liked{% endif %}" aria-label="Додати в обране">❤</button>
+                    </form>
+
+                    <!-- badges -->
+                    <div class="car-card__badges">
+
+                        <span class="car-card__vin">
+                            ✔ Перевірений VIN
+                        </span>
+
+                        <span class="car-card__plate">
+                            <span class="car-card__plate-blue">
+                                <span class="car-card__plate-ua">UA</span>
+                            </span>
+                            {{ car.plate }}
+                        </span>
+
+                    </div>
+                </div>
+
+                <!-- BODY -->
+                <a href="{% url 'car_detail' car.id %}" class="car-card__body">
+
+                    <h3 class="car-card__name">
+                        {{ car.brand }} {{ car.model }} {{ car.year }}
+                    </h3>
+
+                    <!-- PRICE -->
+                    <div class="car-card__price">
+                        <span class="car-card__price-usd">
+                            {{ car.price_usd|floatformat:0 }} $
+                        </span>
+                        <span class="car-card__price-dot">•</span>
+                        <span class="car-card__price-uah">
+                            {{ car.price_uah|floatformat:0 }} грн
+                        </span>
+                    </div>
+
+                    <!-- SPECS -->
+                    <div class="car-card__specs">
+
+                        <span class="car-card__spec">
+                            {{ car.mileage }} тис. км
+                        </span>
+
+                        <span class="car-card__spec">
+                            {{ car.get_transmission_display }}
+                        </span>
+
+                        <span class="car-card__spec">
+                            {{ car.engine }}
+                        </span>
+
+                        <span class="car-card__spec">
+                            {{ car.city }}
+                        </span>
+
+                    </div>
+
+                    <!-- POSTED -->
+                    <span class="car-card__posted">
+                        {{ car.posted }}
+                    </span>
+
+                </a>
+            </div>
+
+            <!-- HIDDEN BLOCK -->
+            <div class="car-card__hidden" style="display:none">
+                <div class="car-card__hidden-inner">
+
+                    <div class="car-card__hidden-header">
+                        ✔ Приховано
+                    </div>
+
+                    <p class="car-card__hidden-text">
+                        Дякуємо, ми підберемо для вас кращі варіанти
+                    </p>
+
+                    <button class="car-card__hidden-btn" onclick="unhideCard(this)">
+                        Скасувати
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        {% if not cars %}
+        <div class="recs-empty">
+            <p>Поки що немає оголошень. <a href="{% url 'sell_car' %}">Додайте своє авто</a> — воно з'явиться тут.</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <div class="recs-more-wrap" id="recsMoreWrap">
+        <button class="recs-more-btn" onclick="showMore()">Показати ще</button>
+    </div>
+</section>
+
+<div class="toast" id="toast"></div>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Вживані авто - AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/pages/auto_pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auto-page">
+    <section class="auto-hero">
+        <div class="container auto-hero__inner">
+            <div class="auto-hero__content">
+                <span class="auto-kicker">Перевірені пропозиції</span>
+                <h1 class="auto-hero__title">Вживані авто з пробігом</h1>
+                <p class="auto-hero__text">Добірка оголошень з фото, цінами, пробігом і характеристиками. Обирайте авто, порівнюйте комплектації та переходьте до детальної сторінки.</p>
+                <div class="auto-hero__actions">
+                    <a href="{% url 'search' %}" class="auto-btn auto-btn--primary">Підібрати авто</a>
+                    <a href="{% url 'sell_car' %}" class="auto-btn auto-btn--secondary">Продати своє авто</a>
+                </div>
+            </div>
+            <aside class="auto-panel">
+                <h2 class="auto-panel__title">Популярні фільтри</h2>
+                <div class="auto-stats">
+                    <div class="auto-stat"><span>Ціна</span><strong>від $5 000</strong></div>
+                    <div class="auto-stat"><span>Пробіг</span><strong>до 200 тис. км</strong></div>
+                    <div class="auto-stat"><span>Перевірка</span><strong>VIN та історія</strong></div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="container auto-section">
+        <div class="auto-section__head">
+            <h2 class="auto-section__title">Авто в продажу</h2>
+            <span class="auto-section__hint">Натисніть на картку, щоб переглянути деталі</span>
+        </div>
+        <div class="auto-grid">
+            {% for car in cars %}
+                <article class="auto-card">
+                    <div class="auto-card__media">
+                        <a href="{% url 'car_detail' car.id %}">
+                            <img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}" class="auto-card__image">
+                        </a>
+                        <form method="post" action="{% url 'toggle_favorite' car.id %}" class="favorite-form">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                            <button type="submit" class="favorite-btn{% if car.id in favorite_car_ids %} is-liked{% endif %}" aria-label="Додати в обране">❤</button>
+                        </form>
+                    </div>
+                    <div class="auto-card__body">
+                        <h3 class="auto-card__title"><a href="{% url 'car_detail' car.id %}">{{ car.brand }} {{ car.model }} {{ car.year }}</a></h3>
+                        <span class="auto-card__price">${{ car.price_usd }}</span>
+                        <p class="auto-card__meta">{{ car.mileage }} тис. км · {{ car.engine }} · {{ car.city }}</p>
+                    </div>
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    <h2>Оголошень поки немає</h2>
+                    <p>Додайте перше авто, і воно з'явиться в каталозі.</p>
+                    <a href="{% url 'sell_car' %}" class="auto-btn auto-btn--primary">Продати авто</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

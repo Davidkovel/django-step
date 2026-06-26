@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Вхід - AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="auth-page">
+    <div class="auth-card">
+        <div class="auth-card__head">
+            <span class="auth-card__kicker">Кабінет AUTO.RIA</span>
+            <h1 class="auth-card__title">Вхід</h1>
+            <p class="auth-card__text">Увійдіть, щоб продавати авто, зберігати оголошення та користуватися Garage.</p>
+        </div>
+
+        <form method="post" class="auth-form" novalidate>
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="auth-error">{{ form.non_field_errors.0 }}</div>
+            {% endif %}
+
+            <label class="auth-field" for="{{ form.username.id_for_label }}">
+                <span class="auth-field__label">{{ form.username.label }}</span>
+                {{ form.username }}
+                {% if form.username.errors %}<span class="auth-field__error">{{ form.username.errors.0 }}</span>{% endif %}
+            </label>
+
+            <label class="auth-field" for="{{ form.password.id_for_label }}">
+                <span class="auth-field__label">{{ form.password.label }}</span>
+                {{ form.password }}
+                {% if form.password.errors %}<span class="auth-field__error">{{ form.password.errors.0 }}</span>{% endif %}
+            </label>
+
+            <button type="submit" class="auth-btn auth-btn--primary">Увійти</button>
+        </form>
+
+        <div class="auth-card__footer">
+            <span>Ще немає акаунта?</span>
+            <a href="{% url 'register' %}">Зареєструватися</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

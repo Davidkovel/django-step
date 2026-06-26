@@ -1,0 +1,165 @@
+/* ================================================
+   КАТАЛОГ АВТОМОБІЛІВ
+   ================================================ */
+.section-catalog { padding: 32px 0; }
+.section-catalog .section-title { margin-bottom: 16px; }
+
+/* --- Шапка з табами і сортуванням --- */
+.catalog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* --- Табки --- */
+.catalog-tabs {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 50px;
+    width: fit-content;
+}
+.catalog-tab {
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+.catalog-tab:hover { background: #e0e0e0; }
+.catalog-tab--active { background: #2c2c2c; color: #fff; }
+.catalog-tab--active:hover { background: #2c2c2c; }
+
+/* --- Кнопка сортування --- */
+.catalog-sort { position: relative; }
+.catalog-sort__btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c2c2c;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 8px 0;
+}
+.catalog-sort__btn:hover { text-decoration: none; }
+.catalog-sort__btn svg { flex-shrink: 0; }
+
+/* --- Дропдаун сортування --- */
+.catalog-sort__dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    padding: 8px 0;
+    z-index: 100;
+    min-width: 200px;
+}
+.catalog-sort__dropdown.is-open { display: block; }
+
+.catalog-sort__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #2c2c2c;
+    transition: background-color 0.15s;
+}
+.catalog-sort__option:hover { background-color: #f5f5f5; }
+
+.catalog-sort__radio {
+    appearance: none;
+    width: 22px; height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+}
+.catalog-sort__radio:checked { border-color: #2c2c2c; }
+.catalog-sort__radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px; left: 4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #2c2c2c;
+}
+
+/* --- Панелі --- */
+.catalog-panel { display: none; }
+.catalog-panel--active { display: block; }
+
+/* --- Грід 4 колонки --- */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+/* --- Колонка-картка --- */
+.catalog-col {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    padding: 4px 0;
+    transition: box-shadow 0.2s;
+}
+.catalog-col:hover { box-shadow: 0 2px 14px rgba(0,0,0,0.13); }
+
+/* --- catalog-data обгортка (display:contents коли активна) --- */
+.catalog-data { display: none; }
+.catalog-data--active { display: contents; }
+
+/* --- Рядок-елемент --- */
+.catalog-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: #2c2c2c;
+    transition: background-color 0.15s;
+}
+.catalog-item:hover { background-color: #fafafa; }
+.catalog-item:hover .catalog-item__name { text-decoration: underline; }
+
+.catalog-item__name {
+    font-size: 16px;
+    /*font-weight: 500;*/
+    color: #2c2c2c;
+    flex: 1;
+    min-width: 0;
+}
+.catalog-item__count {
+    background: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2024;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* --- Опис знизу --- */
+.catalog-desc {
+    margin-top: 24px;
+    font-size: 16px;
+    color: #1e1e1e;
+    line-height: 1.6;
+}

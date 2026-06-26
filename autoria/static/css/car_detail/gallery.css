@@ -1,0 +1,125 @@
+.gallery {
+    margin-bottom: 28px;
+}
+
+.gallery__main {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f0f0f0;
+    aspect-ratio: 16 / 10;
+}
+
+.gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    z-index: 2;
+}
+
+.gallery__arrow:hover {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.gallery__arrow--left {
+    left: 12px;
+}
+
+.gallery__arrow--right {
+    right: 12px;
+}
+
+.gallery__counter {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* --- Мініатюри --- */
+.gallery__thumbs {
+    margin-top: 8px;
+}
+
+.gallery__thumbs-viewport {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery__thumbs-track {
+    display: flex;
+    gap: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery__thumb {
+    flex: 0 0 calc(16.666% - 7px);
+    aspect-ratio: 16 / 10;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.gallery__thumb--active {
+    border-color: #e3000f;
+}
+
+.gallery__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__thumb-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background-color 0.2s;
+}
+
+.gallery__thumb-arrow:hover {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.gallery__thumb-arrow--left {
+    left: 6px;
+}
+
+.gallery__thumb-arrow--right {
+    right: 6px;
+}

@@ -1,0 +1,437 @@
+{% load static %}
+
+<!-- ========== Каталог автомобілів ========== -->
+<section class="section-catalog container">
+    <h2 class="section-title">Каталог автомобілів</h2>
+
+    <div class="catalog-header">
+        <div class="catalog-tabs">
+            <button class="catalog-tab catalog-tab--active" onclick="switchCatalog(this, 'used')">Вживані авто</button>
+            <button class="catalog-tab" onclick="switchCatalog(this, 'new')">Нові авто</button>
+            <button class="catalog-tab" onclick="switchCatalog(this, 'parts')">Все для автомобіліста</button>
+            <button class="catalog-tab" onclick="switchCatalog(this, 'news')">Новини</button>
+            <button class="catalog-tab" onclick="switchCatalog(this, 'topics')">Теми</button>
+            <button class="catalog-tab" onclick="switchCatalog(this, 'reviews')">Відгуки</button>
+        </div>
+
+        <div class="catalog-sort" id="catalogSort">
+            <button class="catalog-sort__btn" onclick="toggleCatalogSort()">
+                <span class="catalog-sort__text" id="catalogSortText">по марці</span>
+                <svg width="16" height="16" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 4v16M7 4l-4 4M7 4l4 4"/>
+                    <path d="M21 20V4M21 20l-4-4M21 20l4-4"/>
+                </svg>
+            </button>
+            <div class="catalog-sort__dropdown" id="catalogSortDropdown"></div>
+        </div>
+    </div>
+
+    <!-- ===== Вживані авто ===== -->
+    <div class="catalog-panel catalog-panel--active" data-catalog="used">
+        <div class="catalog-grid">
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Дивитись всі марки</span><span class="catalog-item__count">357 174</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Дивитись всі роки</span><span class="catalog-item__count">357 174</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог легковиків</span><span class="catalog-item__count">308 753</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог мото</span><span class="catalog-item__count">18 411</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог водного</span><span class="catalog-item__count">1 274</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог сільгосптехніки</span><span class="catalog-item__count">35 149</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог спецтехніки</span><span class="catalog-item__count">3 193</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог автобусів</span><span class="catalog-item__count">4 165</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог вантажівок</span><span class="catalog-item__count">11 720</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог причепів</span><span class="catalog-item__count">9 481</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог автобудинків</span><span class="catalog-item__count">178</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог повітряного транспорта</span><span class="catalog-item__count">12</span></a>
+            </div>
+            <!-- по марці -->
+            <div class="catalog-data catalog-data--active" data-sort="brand">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Volkswagen</span><span class="catalog-item__count">35 566</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Audi</span><span class="catalog-item__count">20 959</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">BMW</span><span class="catalog-item__count">20 465</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mercedes-Benz</span><span class="catalog-item__count">18 788</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Ford</span><span class="catalog-item__count">17 784</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Renault</span><span class="catalog-item__count">16 754</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">ВАЗ / Lada</span><span class="catalog-item__count">15 464</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Nissan</span><span class="catalog-item__count">13 371</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Opel</span><span class="catalog-item__count">13 170</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Skoda</span><span class="catalog-item__count">13 095</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Toyota</span><span class="catalog-item__count">11 265</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Hyundai</span><span class="catalog-item__count">10 910</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mazda</span><span class="catalog-item__count">8 263</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Kia</span><span class="catalog-item__count">8 201</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Peugeot</span><span class="catalog-item__count">7 340</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Chevrolet</span><span class="catalog-item__count">6 945</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Honda</span><span class="catalog-item__count">6 475</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mitsubishi</span><span class="catalog-item__count">6 348</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Tesla</span><span class="catalog-item__count">5 817</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Daewoo</span><span class="catalog-item__count">5 807</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Volvo</span><span class="catalog-item__count">4 319</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Jeep</span><span class="catalog-item__count">4 165</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Citroen</span><span class="catalog-item__count">4 164</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">ЗАЗ</span><span class="catalog-item__count">3 909</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Lexus</span><span class="catalog-item__count">3 261</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Land Rover</span><span class="catalog-item__count">3 187</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Fiat</span><span class="catalog-item__count">2 802</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Subaru</span><span class="catalog-item__count">2 688</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Suzuki</span><span class="catalog-item__count">2 321</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Chery</span><span class="catalog-item__count">2 199</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">ГАЗ</span><span class="catalog-item__count">1 988</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Infiniti</span><span class="catalog-item__count">1 823</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Yamaha</span><span class="catalog-item__count">1 771</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Porsche</span><span class="catalog-item__count">1 764</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Dodge</span><span class="catalog-item__count">1 689</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">MAN</span><span class="catalog-item__count">1 564</span></a>
+                </div>
+            </div>
+            <!-- по регіону -->
+            <div class="catalog-data" data-sort="region">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Вінниця</span><span class="catalog-item__count">10 598</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Дніпро (Дніпропетровськ)</span><span class="catalog-item__count">14 698</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Житомир</span><span class="catalog-item__count">6 074</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Запоріжжя</span><span class="catalog-item__count">6 365</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Київ</span><span class="catalog-item__count">53 516</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Івано-Франківськ</span><span class="catalog-item__count">9 111</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Кропивницький (Кіровоград)</span><span class="catalog-item__count">3 799</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Луцьк</span><span class="catalog-item__count">8 604</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Львів</span><span class="catalog-item__count">24 787</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Миколаїв</span><span class="catalog-item__count">5 194</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Одеса</span><span class="catalog-item__count">19 452</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Полтава</span><span class="catalog-item__count">5 539</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Рівне</span><span class="catalog-item__count">8 381</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Суми</span><span class="catalog-item__count">3 386</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Тернопіль</span><span class="catalog-item__count">7 414</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Ужгород</span><span class="catalog-item__count">4 481</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Харків</span><span class="catalog-item__count">12 785</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Херсон</span><span class="catalog-item__count">634</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Хмельницький</span><span class="catalog-item__count">7 025</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Черкаси</span><span class="catalog-item__count">5 105</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Чернівці</span><span class="catalog-item__count">8 187</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Чернігів</span><span class="catalog-item__count">3 843</span></a>
+                </div>
+            </div>
+            <!-- по типу -->
+            <div class="catalog-data" data-sort="type">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Седан</span><span class="catalog-item__count">98 412</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Хетчбек</span><span class="catalog-item__count">62 318</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Універсал</span><span class="catalog-item__count">54 207</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Кросовер / SUV</span><span class="catalog-item__count">48 930</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Мінівен</span><span class="catalog-item__count">18 745</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Купе</span><span class="catalog-item__count">8 312</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Кабріолет</span><span class="catalog-item__count">3 214</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Пікап</span><span class="catalog-item__count">5 870</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Ліфтбек</span><span class="catalog-item__count">4 102</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Фастбек</span><span class="catalog-item__count">1 230</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Родстер</span><span class="catalog-item__count">890</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Лімузин</span><span class="catalog-item__count">64</span></a>
+                </div>
+            </div>
+            <!-- по паливу -->
+            <div class="catalog-data" data-sort="fuel">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Бензин</span><span class="catalog-item__count">187 420</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Дизель</span><span class="catalog-item__count">102 318</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Газ / Бензин</span><span class="catalog-item__count">31 204</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Електро</span><span class="catalog-item__count">12 870</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Гібрид</span><span class="catalog-item__count">15 430</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Газ</span><span class="catalog-item__count">7 932</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Нові авто ===== -->
+    <div class="catalog-panel" data-catalog="new">
+        <div class="catalog-grid">
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Дивитись всі марки</span><span class="catalog-item__count">9 953</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Пошук</span><span class="catalog-item__count">9 953</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог легковиків</span><span class="catalog-item__count">7 005</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог мото</span><span class="catalog-item__count">2 564</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог водного</span><span class="catalog-item__count">41</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог спецтехніки</span><span class="catalog-item__count">19</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог автобусів</span><span class="catalog-item__count">30</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог вантажівок</span><span class="catalog-item__count">287</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Каталог причепів</span><span class="catalog-item__count">7</span></a>
+            </div>
+            <div class="catalog-data catalog-data--active" data-sort="brand">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Volkswagen</span><span class="catalog-item__count">593</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Renault</span><span class="catalog-item__count">473</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Honda</span><span class="catalog-item__count">423</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Skoda</span><span class="catalog-item__count">348</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Hyundai</span><span class="catalog-item__count">320</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Citroen</span><span class="catalog-item__count">308</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mercedes-Benz</span><span class="catalog-item__count">294</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mazda</span><span class="catalog-item__count">276</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Peugeot</span><span class="catalog-item__count">273</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">BMW</span><span class="catalog-item__count">245</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Toyota</span><span class="catalog-item__count">236</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Nissan</span><span class="catalog-item__count">235</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Ford</span><span class="catalog-item__count">233</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Suzuki</span><span class="catalog-item__count">221</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mitsubishi</span><span class="catalog-item__count">209</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Opel</span><span class="catalog-item__count">192</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Volvo</span><span class="catalog-item__count">183</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Kia</span><span class="catalog-item__count">180</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">BRP</span><span class="catalog-item__count">125</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Porsche</span><span class="catalog-item__count">118</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Audi</span><span class="catalog-item__count">102</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Land Rover</span><span class="catalog-item__count">89</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">SEAT</span><span class="catalog-item__count">12</span></a>
+                </div>
+            </div>
+            <div class="catalog-data" data-sort="region">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Київ</span><span class="catalog-item__count">4 120</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Одеса</span><span class="catalog-item__count">1 340</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Дніпро</span><span class="catalog-item__count">980</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Львів</span><span class="catalog-item__count">870</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Харків</span><span class="catalog-item__count">760</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Вінниця</span><span class="catalog-item__count">420</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Запоріжжя</span><span class="catalog-item__count">310</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Полтава</span><span class="catalog-item__count">280</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Миколаїв</span><span class="catalog-item__count">195</span></a>
+                </div>
+            </div>
+            <div class="catalog-data" data-sort="type">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Седан</span><span class="catalog-item__count">2 830</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Кросовер / SUV</span><span class="catalog-item__count">2 415</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Хетчбек</span><span class="catalog-item__count">1 890</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Універсал</span><span class="catalog-item__count">1 340</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Купе</span><span class="catalog-item__count">620</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Мінівен</span><span class="catalog-item__count">410</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Все для автомобіліста ===== -->
+    <div class="catalog-panel" data-catalog="parts">
+        <div class="catalog-grid">
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Вживані автозапчастини</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Запчастини по виробнику</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автомобільні марки до запчастин</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Запчастини для вантажних автомобілів</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Вакансії</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Тварини та зоотовари</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Запчастини для ТО</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Дитячі автокрісла</span></a>
+            </div>
+            <div class="catalog-data catalog-data--active" data-sort="brand">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Volkswagen</span><span class="catalog-item__count">756 460</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Audi</span><span class="catalog-item__count">545 501</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mercedes</span><span class="catalog-item__count">526 847</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Ford</span><span class="catalog-item__count">503 170</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Renault</span><span class="catalog-item__count">501 547</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Opel</span><span class="catalog-item__count">443 079</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">BMW</span><span class="catalog-item__count">419 792</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Nissan</span><span class="catalog-item__count">392 110</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Peugeot</span><span class="catalog-item__count">376 104</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Fiat</span><span class="catalog-item__count">366 477</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Toyota</span><span class="catalog-item__count">363 391</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Citroen</span><span class="catalog-item__count">357 182</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Hyundai</span><span class="catalog-item__count">332 565</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Skoda</span><span class="catalog-item__count">314 395</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Seat</span><span class="catalog-item__count">291 650</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Kia</span><span class="catalog-item__count">250 850</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mitsubishi</span><span class="catalog-item__count">233 418</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Mazda</span><span class="catalog-item__count">225 502</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Chevrolet</span><span class="catalog-item__count">200 701</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Volvo</span><span class="catalog-item__count">197 170</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Alfa Romeo</span><span class="catalog-item__count">126 179</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Jeep</span><span class="catalog-item__count">122 353</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Lancia</span><span class="catalog-item__count">119 763</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Suzuki</span><span class="catalog-item__count">118 718</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Land Rover</span><span class="catalog-item__count">113 724</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Lexus</span><span class="catalog-item__count">105 752</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Dacia</span><span class="catalog-item__count">95 300</span></a>
+                </div>
+            </div>
+            <div class="catalog-data" data-sort="region">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Київ</span><span class="catalog-item__count">312 400</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Одеса</span><span class="catalog-item__count">98 700</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Харків</span><span class="catalog-item__count">87 300</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Дніпро</span><span class="catalog-item__count">76 200</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Львів</span><span class="catalog-item__count">65 100</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Запоріжжя</span><span class="catalog-item__count">41 800</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Вінниця</span><span class="catalog-item__count">32 500</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Полтава</span><span class="catalog-item__count">28 100</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Миколаїв</span><span class="catalog-item__count">21 400</span></a>
+                </div>
+            </div>
+            <div class="catalog-data" data-sort="type">
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Кузовні запчастини</span><span class="catalog-item__count">420 100</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Двигун</span><span class="catalog-item__count">380 200</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Ходова</span><span class="catalog-item__count">310 500</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Електрика</span><span class="catalog-item__count">195 300</span></a>
+                </div>
+                <div class="catalog-col">
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Трансмісія</span><span class="catalog-item__count">178 400</span></a>
+                    <a href="#" class="catalog-item"><span class="catalog-item__name">Салон</span><span class="catalog-item__count">142 800</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Новини ===== -->
+    <div class="catalog-panel" data-catalog="news">
+        <div class="catalog-grid">
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автомобілі</span><span class="catalog-item__count">5 634</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Події</span><span class="catalog-item__count">5 422</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автозакон</span><span class="catalog-item__count">1 079</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Рейтинги автомобілів</span><span class="catalog-item__count">1 044</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Акції</span><span class="catalog-item__count">846</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Електромобілі</span><span class="catalog-item__count">653</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Тест-драйви</span><span class="catalog-item__count">626</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Статті</span><span class="catalog-item__count">414</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Журнал</span><span class="catalog-item__count">370</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Найбільш обговорювані автоновини</span><span class="catalog-item__count">274</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Досвє вживаних авто</span><span class="catalog-item__count">141</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Що вибрати?</span><span class="catalog-item__count">140</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Обираємо б/в авто</span><span class="catalog-item__count">65</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Купуємо перший автомобіль</span><span class="catalog-item__count">45</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Конкурси</span><span class="catalog-item__count">38</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Опитування</span><span class="catalog-item__count">36</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Як продати автомобіль</span><span class="catalog-item__count">30</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Тести</span><span class="catalog-item__count">13</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Теми ===== -->
+    <div class="catalog-panel" data-catalog="topics">
+        <div class="catalog-grid">
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Електромобілі</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Б/в авто</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Закони</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Німецькі автомобілі</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автомобільні рейтинги</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Розмитнення</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Покупка авто</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Мототехніка</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Шини</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Краш-тести</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Економія палива</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автоаксесуари</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Запчастини</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Як підготувати авто до зими</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Підготовка автомобіля до весни</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автомобілі до 10 тис. доларів</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автомобільні терміни</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Аналітичний центр</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Відгуки ===== -->
+    <div class="catalog-panel" data-catalog="reviews">
+        <div class="catalog-grid">
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Легкові</span><span class="catalog-item__count">120 585</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Мото</span><span class="catalog-item__count">2 751</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Вантажівки</span><span class="catalog-item__count">845</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Спецтехніка</span><span class="catalog-item__count">83</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автобуси</span><span class="catalog-item__count">83</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Причепи</span><span class="catalog-item__count">62</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Водний транспорт</span><span class="catalog-item__count">34</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Сільгосптехніка</span><span class="catalog-item__count">34</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Автобудинки</span><span class="catalog-item__count">6</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">ВАЗ / Lada</span><span class="catalog-item__count">10 862</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Toyota</span><span class="catalog-item__count">7 057</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Volkswagen</span><span class="catalog-item__count">6 604</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Ford</span><span class="catalog-item__count">6 494</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Nissan</span><span class="catalog-item__count">6 103</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Renault</span><span class="catalog-item__count">6 088</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Hyundai</span><span class="catalog-item__count">5 379</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Opel</span><span class="catalog-item__count">5 292</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Chevrolet</span><span class="catalog-item__count">5 206</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Kia</span><span class="catalog-item__count">4 892</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Mitsubishi</span><span class="catalog-item__count">4 591</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Honda</span><span class="catalog-item__count">3 638</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Skoda</span><span class="catalog-item__count">3 589</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Mazda</span><span class="catalog-item__count">3 318</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">BMW</span><span class="catalog-item__count">3 294</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Daewoo</span><span class="catalog-item__count">3 223</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Audi</span><span class="catalog-item__count">3 156</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Peugeot</span><span class="catalog-item__count">3 116</span></a>
+            </div>
+            <div class="catalog-col">
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Mercedes-Benz</span><span class="catalog-item__count">2 932</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Citroen</span><span class="catalog-item__count">1 966</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Subaru</span><span class="catalog-item__count">1 763</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Suzuki</span><span class="catalog-item__count">1 710</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Fiat</span><span class="catalog-item__count">1 692</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Volvo</span><span class="catalog-item__count">1 661</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">ГАЗ</span><span class="catalog-item__count">1 647</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">ЗАЗ</span><span class="catalog-item__count">1 518</span></a>
+                <a href="#" class="catalog-item"><span class="catalog-item__name">Chery</span><span class="catalog-item__count">1 469</span></a>
+            </div>
+        </div>
+    </div>
+
+    <p class="catalog-desc">AUTO.RIA - найбільш великий авто базар України серед всіх вітчизняних сайтів подібного роду. У намірі допомогти як покупцям транспортних засобів, так і бажаючим їх продати, ми розробили зручний і масштабний ресурс, представлений у вигляді дошки онлайн-оголошень.</p>
+</section>

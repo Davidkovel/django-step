@@ -1,0 +1,123 @@
+/* ================================================
+   ДІЗНАЙТЕСЬ БІЛЬШЕ
+   ================================================ */
+.learn-more { padding: 32px 0; }
+
+.learn-more__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+/* --- Картка --- */
+.learn-card {
+    background: #e8f4f8;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+.learn-card:last-child { margin-bottom: 0; }
+
+/* Перша картка — простий layout */
+.learn-card--simple {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.learn-card__body { flex: 1; }
+
+.learn-card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.learn-card__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 6px;
+}
+.learn-card__desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+.learn-card--simple .learn-card__desc { margin-bottom: 0; }
+
+.learn-card__img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* --- Теги з замочком --- */
+.learn-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+.learn-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #2c2c2c;
+}
+.learn-tag__lock {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    color: #888;
+}
+
+/* --- Футер картки --- */
+.learn-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.learn-card__price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+/* --- Кнопки --- */
+.learn-card__btn {
+    padding: 12px 48px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+.learn-card__btn:hover { background: rgba(0,0,0,0.06); }
+
+/* --- NEW бейдж --- */
+.learn-card__new {
+    background: #2c2c2c;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}

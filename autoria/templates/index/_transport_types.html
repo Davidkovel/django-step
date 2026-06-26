@@ -1,0 +1,217 @@
+{% load static %}
+
+<section class="section-transport container">
+    <h2 class="section-title">Типи транспорту</h2>
+
+    <div class="transport-tabs">
+        <button class="transport-tab transport-tab--active" onclick="switchTransport(this, 'cars')">Легкові б/у</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'new')">Нові авто</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'moto')">Мото</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'truck')">Вантажівки</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'trailer')">Причепи</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'special')">Спецтехніка</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'agro')">Сільгосптехніка</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'bus')">Автобуси</button>
+        <button class="transport-tab" onclick="switchTransport(this, 'water')">Водний</button>
+    </div>
+
+    <!-- Легкові б/у -->
+    <div class="transport-panel transport-panel--active" data-panel="cars">
+        <div class="brands-grid">
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/bmw.png" alt="BMW" class="brand-card__logo">
+                <span class="brand-card__name">BMW</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/chevrolet.svg" alt="Mercedes-Benz" class="brand-card__logo">
+                <span class="brand-card__name">Mercedes-Benz</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/hyundai.png" alt="Volkswagen" class="brand-card__logo">
+                <span class="brand-card__name">Volkswagen</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/toyota.svg" alt="Toyota" class="brand-card__logo">
+                <span class="brand-card__name">Toyota</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/volkswagen.png" alt="BMW" class="brand-card__logo">
+                <span class="brand-card__name">Renault</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/bmw.png" alt="Opel" class="brand-card__logo">
+                <span class="brand-card__name">Opel</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/chevrolet.svg" alt="Ford" class="brand-card__logo">
+                <span class="brand-card__name">Ford</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/hyundai.png" alt="Audi" class="brand-card__logo">
+                <span class="brand-card__name">Audi</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/toyota.svg" alt="Toyota" class="brand-card__logo">
+                <span class="brand-card__name">Toyota</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/volkswagen.png" alt="Daewoo" class="brand-card__logo">
+                <span class="brand-card__name">Daewoo</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/bmw.png" alt="Skoda" class="brand-card__logo">
+                <span class="brand-card__name">Skoda</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/chevrolet.svg" alt="Nissan" class="brand-card__logo">
+                <span class="brand-card__name">Nissan</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/hyundai.png" alt="Honda" class="brand-card__logo">
+                <span class="brand-card__name">Honda</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/toyota.svg" alt="Hyundai" class="brand-card__logo">
+                <span class="brand-card__name">Hyundai</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/volkswagen.png" alt="Mitsubishi" class="brand-card__logo">
+                <span class="brand-card__name">Mitsubishi</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/bmw.png" alt="Chevrolet" class="brand-card__logo">
+                <span class="brand-card__name">Chevrolet</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/chevrolet.svg" alt="Peugeot" class="brand-card__logo">
+                <span class="brand-card__name">Peugeot</span>
+            </a>
+            <a href="#" class="brand-card brand-card--all">
+                <span class="brand-card__arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+                </span>
+                <span class="brand-card__name">Дивитись всі</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Нові авто (ідентично) -->
+    <div class="transport-panel" data-panel="new">
+        <div class="brands-grid">
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/bmw.png" alt="Toyota" class="brand-card__logo">
+                <span class="brand-card__name">Toyota</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/chevrolet.svg" alt="BMW" class="brand-card__logo">
+                <span class="brand-card__name">BMW</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/hyundai.png" alt="Mercedes-Benz" class="brand-card__logo">
+                <span class="brand-card__name">Mercedes-Benz</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/toyota.svg" alt="Volkswagen" class="brand-card__logo">
+                <span class="brand-card__name">Volkswagen</span>
+            </a>
+            <a href="#" class="brand-card">
+                <img src="/static/images/index/filter_logos/volkswagen.png" alt="Hyundai" class="brand-card__logo">
+                <span class="brand-card__name">Hyundai</span>
+            </a>
+            <a href="#" class="brand-card brand-card--all">
+                <span class="brand-card__arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg></span>
+                <span class="brand-card__name">Дивитись всі</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Мото -->
+    <div class="transport-panel" data-panel="moto">
+        <div class="transport-links">
+            <a href="#">Мотоцикли ></a><a href="#">Мотоцикл Багатоцільовий ></a><a href="#">Моторолер ></a>
+            <a href="#">Скутери / Мопеди ></a><a href="#">Квадроцикл утилітарний ></a><a href="#">Трицикл ></a>
+            <a href="#">Мотоцикл Класік ></a><a href="#">Максі-скутер ></a><a href="#">Міні спорт ></a>
+            <a href="#">Квадроцикли ></a><a href="#">Мотоцикл Туризм ></a><a href="#">Кафе рейсер ></a>
+            <a href="#">Скутер ></a><a href="#">Мотоцикл Чоппер ></a><a href="#">Снігохід ></a>
+            <a href="#">Спортбайк ></a><a href="#">Мотоцикл Кросс ></a><a href="#">Дивитись всі ></a>
+        </div>
+    </div>
+
+    <!-- Вантажівки -->
+    <div class="transport-panel" data-panel="truck">
+        <div class="transport-links">
+            <a href="#">Вантажівка ></a><a href="#">Інші вантажівки ></a><a href="#">Шасі ></a>
+            <a href="#">Вантажний фургон ></a><a href="#">Автовоз ></a><a href="#">Платформа ></a>
+            <a href="#">Тягач ></a><a href="#">Мікроавтобус вантажний ></a><a href="#">Рефрижератор ></a>
+            <a href="#">Самоскид ></a><a href="#">Контейнеровоз ></a><a href="#">Дивитись всі ></a>
+        </div>
+    </div>
+
+    <!-- Причепи -->
+    <div class="transport-panel" data-panel="trailer">
+        <div class="transport-links">
+            <a href="#">Напівпричіп ></a><a href="#">Легковий причіп ></a><a href="#">Газовоз ></a>
+            <a href="#">Причеп ></a><a href="#">Самоскид причіп ></a><a href="#">Автовоз ></a>
+            <a href="#">Цистерна ></a><a href="#">Фургон ></a><a href="#">Дивитись всі ></a>
+        </div>
+    </div>
+
+    <!-- Спецтехніка -->
+    <div class="transport-panel" data-panel="special">
+        <div class="transport-links">
+            <a href="#">Будівельна техніка ></a><a href="#">Колісний екскаватор ></a><a href="#">Автогрейдер ></a>
+            <a href="#">Навантажувачі ></a><a href="#">Автовишка ></a><a href="#">Бульдозер ></a>
+            <a href="#">Екскаватор ></a><a href="#">Дорожній каток ></a><a href="#">Евакуатор ></a>
+            <a href="#">Автокран ></a><a href="#">Спецтранспорт ></a><a href="#">Дивитись всі ></a>
+        </div>
+    </div>
+
+    <!-- Сільгосптехніка -->
+    <div class="transport-panel" data-panel="agro">
+        <div class="transport-links">
+            <a href="#">Ємності ></a><a href="#">Бункери-перевантажувачі ></a><a href="#">Вантажівки ></a>
+            <a href="#">Агрегати ></a><a href="#">Бури ></a><a href="#">Вила ></a>
+            <a href="#">Борони ></a><a href="#">Ваги автомобільні ></a><a href="#">Дивитись всі ></a>
+        </div>
+    </div>
+
+    <!-- Автобуси -->
+    <div class="transport-panel" data-panel="bus">
+        <div class="transport-links">
+            <a href="#">Мікроавтобус ></a><a href="#">Міський автобус ></a><a href="#">Дивитись всі ></a>
+            <a href="#">Автобус ></a><a href="#">Інші автобуси ></a>
+            <a href="#">Туристичний / Міжміський ></a><a href="#">Приміський автобус ></a>
+        </div>
+    </div>
+
+    <!-- Водний -->
+    <div class="transport-panel" data-panel="water">
+        <div class="transport-links">
+            <a href="#">Катер ></a><a href="#">Гідроцикл спортивний ></a><a href="#">Парусна яхта ></a>
+            <a href="#">Човен ></a><a href="#">Гідроцикл туристичний ></a><a href="#">Дивитись всі ></a>
+            <a href="#">Моторна яхта ></a><a href="#">RIB ></a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== Оцінка сторінки ========== -->
+<section class="section-rating container">
+    <div class="rating-card">
+        <div class="rating-card__text">
+            <h3 class="rating-card__title">Оцініть, як вам нова головна сторінка?</h3>
+            <p class="rating-card__desc">Наскільки зручні і зрозумілі ці оновлення для вас?</p>
+        </div>
+        <div class="rating-stars" id="ratingStars">
+            <div class="star-item" data-value="1"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>1</span></div>
+            <div class="star-item" data-value="2"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>2</span></div>
+            <div class="star-item" data-value="3"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>3</span></div>
+            <div class="star-item" data-value="4"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>4</span></div>
+            <div class="star-item" data-value="5"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>5</span></div>
+            <div class="star-item" data-value="6"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>6</span></div>
+            <div class="star-item" data-value="7"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>7</span></div>
+            <div class="star-item" data-value="8"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>8</span></div>
+            <div class="star-item" data-value="9"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>9</span></div>
+            <div class="star-item" data-value="10"><svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>10</span></div>
+        </div>
+    </div>
+</section>

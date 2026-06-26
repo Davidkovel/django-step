@@ -1,0 +1,110 @@
+/* ================================================
+   ІСТОРІЯ АВТО
+   ================================================ */
+.history-card {
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+    padding: 28px;
+    margin: 32px 0;
+}
+.history-card__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 28px;
+}
+
+/* --- Таймлайн --- */
+.timeline { position: relative; margin-bottom: 32px; }
+
+.timeline__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+}
+.timeline__date {
+    width: 80px;
+    flex-shrink: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c2c2c;
+    text-align: right;
+    padding-top: 2px;
+}
+.timeline__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2c2c2c;
+    flex-shrink: 0;
+    margin-top: 6px;
+    position: relative;
+    z-index: 1;
+}
+.timeline__content {
+    flex: 1;
+    font-size: 15px;
+    color: #2c2c2c;
+    line-height: 1.6;
+}
+
+/* Вертикальна лінія між точками */
+.timeline__item:not(:last-child) .timeline__dot::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 80px;
+    background: #2c2c2c;
+}
+
+/* Підпис між подіями */
+.timeline__label {
+    margin-left: 100px;
+    padding: 12px 0 12px 30px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* --- Оцінка --- */
+.history-rating {
+    border-top: 1px solid #eee;
+    padding-top: 24px;
+}
+.history-rating__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+}
+.history-stars {
+    display: flex;
+    gap: 6px;
+}
+.history-star {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+}
+.history-star span {
+    font-size: 13px;
+    color: #333;
+}
+.history-star svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: #2c2c2c;
+    stroke-width: 1.5;
+    transition: fill 0.15s;
+}
+.history-star.active svg,
+.history-star.hovered svg {
+    fill: #2c2c2c;
+    stroke: #2c2c2c;
+}

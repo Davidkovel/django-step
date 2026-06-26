@@ -1,0 +1,102 @@
+/* ================================================
+   EXTRAS
+   ================================================ */
+.detail-extras { padding: 32px 0; }
+
+/* --- Картка "Знаєте більше" --- */
+.extras-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.extras-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.extras-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 6px;
+}
+.extras-card__desc {
+    font-size: 15px;
+    color: #555;
+}
+.extras-card__btn {
+    padding: 14px 40px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.extras-card__btn:hover { background: #f0f0f0; }
+
+/* --- Посилання --- */
+.extras-links {
+    display: flex;
+    gap: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+.extras-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c2c;
+    text-decoration: underline;
+}
+.extras-link:hover { text-decoration: none; }
+.extras-link svg:first-child { color: #555; }
+
+/* --- Статистика --- */
+.extras-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 40px;
+    padding: 20px 0 28px;
+    font-size: 15px;
+    color: #2c2c2c;
+}
+
+/* --- Розстрочка --- */
+.extras-credit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 28px;
+}
+.extras-credit__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 6px;
+}
+.extras-credit__desc {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 12px;
+}
+.extras-credit__price {
+    font-size: 18px;
+    color: #2c2c2c;
+}
+.extras-credit__dot {
+    margin: 0 6px;
+    color: #888;
+}

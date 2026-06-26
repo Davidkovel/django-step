@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Видалити авто — AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/admin_cars.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-cars-page admin-cars-page--narrow container">
+    <div class="admin-delete">
+        <h1 class="admin-delete__title">Видалити оголошення?</h1>
+        <p class="admin-delete__text">
+            {{ car.brand }} {{ car.model }} {{ car.year }} буде повністю прибрано з сайту.
+        </p>
+        <form method="post" class="admin-delete__actions">
+            {% csrf_token %}
+            <a href="{% url 'admin_cars' %}" class="admin-cars-btn">Скасувати</a>
+            <button type="submit" class="admin-cars-btn admin-cars-btn--danger">Так, видалити</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

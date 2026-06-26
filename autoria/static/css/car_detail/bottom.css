@@ -1,0 +1,151 @@
+/* ================================================
+   DETAIL BOTTOM (після двоколонкового layout)
+   ================================================ */
+.detail-bottom { padding: 32px 0 40px; }
+
+/* ================================================
+   СХОЖІ ОГОЛОШЕННЯ
+   ================================================ */
+.similar { margin-bottom: 32px; }
+.similar__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+.similar__wrap {
+    position: relative;
+    overflow: hidden;
+}
+.similar__track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+}
+.similar__arrow {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background-color 0.2s;
+}
+.similar__arrow:hover { background: rgba(0,0,0,0.55); }
+.similar__arrow--left { left: 8px; }
+.similar__arrow--right { right: 8px; }
+
+/* --- Картка --- */
+.similar-card {
+    flex: 0 0 calc(33.333% - 14px);
+    text-decoration: none;
+    color: inherit;
+}
+.similar-card__img-wrap {
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.similar-card__img { width: 100%; height: 100%; object-fit: cover; }
+
+.similar-card__name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 4px;
+}
+.similar-card:hover .similar-card__name { text-decoration: underline; }
+
+.similar-card__gen {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+}
+.similar-card__price {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+.similar-card:hover .similar-card__price { text-decoration: underline; }
+
+
+/* ================================================
+   НИЖНІ КАРТКИ
+   ================================================ */
+.bottom-cards {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    gap: 20px;
+}
+.bottom-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+}
+.bottom-card__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 6px;
+}
+.bottom-card__desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+.bottom-card__btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.bottom-card__btn:hover { background: #f0f0f0; }
+
+/* --- Рейтинг --- */
+.bottom-card__rating-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.bottom-stars {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+.bottom-star {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+}
+.bottom-star span { font-size: 12px; color: #333; }
+.bottom-star svg {
+    width: 24px; height: 24px;
+    fill: none;
+    stroke: #2c2c2c;
+    stroke-width: 1.5;
+    transition: fill 0.15s;
+}
+.bottom-star.active svg,
+.bottom-star.hovered svg {
+    fill: #2c2c2c;
+    stroke: #2c2c2c;
+}

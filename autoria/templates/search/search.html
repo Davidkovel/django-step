@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Пошук авто - AutoRia{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/pages/auto_pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auto-page">
+    <section class="auto-hero">
+        <div class="container auto-hero__inner">
+            <div class="auto-hero__content">
+                <span class="auto-kicker">Швидкий пошук</span>
+                <h1 class="auto-hero__title">Знайдіть авто під свій запит</h1>
+                <p class="auto-hero__text">Сторінка пошуку готова для майбутніх фільтрів. Зараз вона показує наявні оголошення з каталогу проекту.</p>
+                <form class="search-box" action="{% url 'search' %}" method="get">
+                    <input type="search" name="q" placeholder="Марка або модель">
+                    <select name="type">
+                        <option>Усі авто</option>
+                        <option>Вживані</option>
+                        <option>Нові</option>
+                    </select>
+                    <select name="price">
+                        <option>Будь-яка ціна</option>
+                        <option>до $10 000</option>
+                        <option>$10 000 - $30 000</option>
+                    </select>
+                    <button type="submit" class="auto-btn auto-btn--primary">Пошук</button>
+                </form>
+            </div>
+            <aside class="auto-panel">
+                <h2 class="auto-panel__title">Підказки</h2>
+                <div class="auto-stats">
+                    <div class="auto-stat"><span>Марка</span><strong>Toyota</strong></div>
+                    <div class="auto-stat"><span>Кузов</span><strong>SUV</strong></div>
+                    <div class="auto-stat"><span>Місто</span><strong>Київ</strong></div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="container auto-section">
+        <div class="auto-section__head">
+            <h2 class="auto-section__title">Результати</h2>
+            <span class="auto-section__hint">Показано всі авто з бази</span>
+        </div>
+        <div class="auto-grid">
+            {% for car in cars %}
+                <article class="auto-card">
+                    <div class="auto-card__media">
+                        <a href="{% url 'car_detail' car.id %}">
+                            <img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}" class="auto-card__image">
+                        </a>
+                        <form method="post" action="{% url 'toggle_favorite' car.id %}" class="favorite-form">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                            <button type="submit" class="favorite-btn{% if car.id in favorite_car_ids %} is-liked{% endif %}" aria-label="Додати в обране">❤</button>
+                        </form>
+                    </div>
+                    <div class="auto-card__body">
+                        <h3 class="auto-card__title"><a href="{% url 'car_detail' car.id %}">{{ car.brand }} {{ car.model }} {{ car.year }}</a></h3>
+                        <span class="auto-card__price">${{ car.price_usd }}</span>
+                        <p class="auto-card__meta">{{ car.mileage }} тис. км · {{ car.body_type_display }} · {{ car.city }}</p>
+                    </div>
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    <h2>Немає авто для пошуку</h2>
+                    <p>Додайте оголошення, щоб побачити результат.</p>
+                    <a href="{% url 'sell_car' %}" class="auto-btn auto-btn--primary">Додати авто</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

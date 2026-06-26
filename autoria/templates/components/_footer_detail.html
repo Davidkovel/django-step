@@ -1,0 +1,54 @@
+{% load static %}
+
+<footer class="footer">
+    <!-- ===== Підтримка ===== -->
+    <div class="container">
+        <div class="footer-support">
+            <div class="footer-support__photos">
+                <img src="{% static 'images/base/support_1.png' %}" alt="" class="footer-support__photo">
+                <img src="{% static 'images/base/support_2.png' %}" alt="" class="footer-support__photo">
+                <img src="{% static 'images/base/support_3.png' %}" alt="" class="footer-support__photo">
+            </div>
+            <div class="footer-support__info">
+                <a href="#" class="footer-support__title">Служба турботи про користувачів 24/7</a>
+                <a href="#" class="footer-support__desc">Допомога по сайту</a>
+            </div>
+            <div class="footer-support__socials">
+                <a href="#" class="footer-social footer-social--telegram" aria-label="Telegram">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M9.04 15.6l-.39 5.1c.56 0 .8-.24 1.1-.53l2.63-2.47 5.45 3.93c1 .55 1.7.26 1.97-.9L23.4 4.15c.32-1.47-.54-2.04-1.52-1.68L1.55 10.55c-1.43.55-1.41 1.36-.24 1.74l5.47 1.68L18.7 6.3c.56-.36 1.07-.16.65.2L9.04 15.6z"/></svg>
+                </a>
+                <a href="#" class="footer-social footer-social--messenger" aria-label="Messenger">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.2 5.42 3.15 7.2V22l3.03-1.66c.85.24 1.75.36 2.82.36 5.64 0 10-3.93 10-9.3S17.64 2 12 2zm1.05 12.53l-2.55-2.72L5.6 14.53l5.37-5.7 2.55 2.72 4.87-2.72-5.34 5.7z"/></svg>
+                </a>
+                <a href="#" class="footer-social footer-social--viber" aria-label="Viber">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M16.4 3.03C14.95 2.5 13.22 2.2 12 2.2s-2.95.3-4.4.83C5.83 3.73 4.5 5 3.8 6.87 3.2 8.5 3 10.3 3 12s.2 3.5.8 5.13c.7 1.87 2.03 3.14 3.8 3.84L8.4 22l2.5-1.5c.37.03.73.05 1.1.05s.73-.02 1.1-.05L15.6 22l.8-1.03c1.77-.7 3.1-1.97 3.8-3.84.6-1.63.8-3.43.8-5.13s-.2-3.5-.8-5.13c-.7-1.87-2.03-3.14-3.8-3.84zM16 14.5c-.3.8-.9 1.3-1.6 1.5-.4.1-.9.1-1.4 0-1.5-.4-2.8-1.2-3.8-2.3-1-1.1-1.6-2.4-1.8-3.8-.1-.5 0-1 .2-1.4.3-.6.8-1 1.4-1.2.3-.1.6 0 .8.2l.8 1c.2.3.2.6 0 .9l-.4.6c-.1.2-.1.4 0 .5.4.8 1 1.4 1.7 1.8.2.1.4.1.5 0l.6-.5c.3-.2.6-.2.9 0l1 .7c.3.2.3.5.2.8l-.1.1z"/></svg>
+                </a>
+                <a href="#" class="footer-social footer-social--chat" aria-label="Чат">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/></svg>
+                </a>
+                <a href="#" class="footer-social footer-social--phone" aria-label="Телефон">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Нижня панель ===== -->
+    <div class="container">
+        <div class="footer-bottom">
+            <div class="footer-bottom__left">
+                <a href="#" class="footer-bottom__link">Угода про надання послуг</a>
+                <a href="#" class="footer-bottom__link">Політика Приватності</a>
+                <a href="#" class="footer-bottom__link">Мапа сайту</a>
+            </div>
+            <div class="footer-bottom__right">
+                <a href="#" class="footer-bottom__link">Повернутися до попередньої версії</a>
+                <button class="footer-lang" type="button">
+                    Українська
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+            </div>
+        </div>
+        <p class="footer-copyright">&copy; 2014-2026 RIA.com</p>
+    </div>
+</footer>
